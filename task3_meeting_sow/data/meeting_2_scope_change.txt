@@ -1,0 +1,40 @@
+[Meeting Transcript 2: Scope Revision & Follow-Up Call]
+Date: October 14, 2026
+Client: Metro Doctors Directory (Dr. Marcus Vance, Chief Medical Officer)
+Consultant: Alex Rivera (Senior AI Tech Consultant, BusinessLabs)
+Project: Metro Doctors Specialist Directory & Telehealth Onboarding
+
+Alex Rivera: Good afternoon, Dr. Vance. Good to reconnect. In our first meeting, we aligned on the baseline scope: specialty search, 1,500 CSV doctor import, 2-tier membership ($99/mo Stripe), verified badges, and lead routing. Today we want to review your board's feedback and any adjustments.
+
+Dr. Marcus Vance: Thanks Alex. Yes, I presented the initial proposal to our clinical executive board yesterday, and they loved the direction. However, they had a few critical changes and additional requirements that we need to incorporate.
+
+Alex Rivera: Understood. Let's walk through each change in detail.
+
+Dr. Marcus Vance: First, regarding the search filter. In our last call, we talked about standard zip code radius search. The board feels that's not enough for Manhattan and Brooklyn because medical districts cross borough lines. They want an interactive map where patients can draw custom polygons or lasso specific neighborhoods on Google Maps to filter doctors.
+
+Alex Rivera: Okay, an interactive map polygon boundary drawing filter. That is a customization beyond the standard zip code radius dropdown. I'll note that as a modified search requirement. What else did the board raise?
+
+Dr. Marcus Vance: On the membership tiers: we initially agreed on two tiers (Free and $99/mo). The hospital leadership wants a third tier: 'Enterprise Hospital Department' at $299/mo. This tier must allow a clinic manager to manage up to 10 sub-doctor listings under one parent billing invoice.
+
+Alex Rivera: That's a good tier addition. Brilliant Directories has a Multi-Location / Sub-Accounts add-on that can handle parent-child accounts. We will adjust the membership tier architecture from 2 tiers to 3 tiers.
+
+Dr. Marcus Vance: Great. Now, here is something completely new that the doctors demanded. When a patient submits a consultation inquiry on the profile form, an email is not enough because clinic staff don't check email after 5 PM. They want an instant automated SMS text message sent to the doctor's emergency mobile phone via Twilio containing the patient's name and phone number.
+
+Alex Rivera: Got it. Real-time Twilio SMS notifications for emergency patient leads. That wasn't in our initial scope, so that is a brand new feature integration requiring Twilio API credentials, phone number formatting, and an automated webhook trigger. I will classify that as a new add-on item.
+
+Dr. Marcus Vance: Exactly. And one last thing: our Chief Information Officer asked if we can host real-time encrypted HIPAA-compliant WebRTC telemedicine video calls directly inside the doctor's profile page so patients don't have to leave the website at all.
+
+Alex Rivera: Ah, building a native HIPAA-compliant video telemedicine conferencing engine inside the directory platform. Dr. Vance, I want to be upfront: building a full video conferencing infrastructure from scratch is a massive undertaking with strict regulatory audits. In our first meeting, we agreed doctors would provide an external booking/telehealth link (like Doxy.me or Zoom for Healthcare). Building native video calling would represent major scope creep—likely 80 to 120 developer hours and significant ongoing server costs. My strong recommendation is to stick with the external telehealth link for Phase 1, or quote native video conferencing as an isolated Phase 2 project.
+
+Dr. Marcus Vance: You're completely right, Alex. Thank you for being transparent about the cost and regulatory complexity. Let's definitely keep native video conferencing out of Phase 1 and quote it separately for Phase 2 if we need it. But we definitely need the Twilio SMS alerts and the interactive polygon map search.
+
+Alex Rivera: Understood. So to summarize the deltas from Meeting 1:
+- MODIFIED: Search filter updated from simple zip code to interactive Google Maps polygon drawing.
+- MODIFIED: Membership tiers updated from 2 tiers to 3 tiers (adding $299/mo Enterprise Multi-Listing tier).
+- NEW & OUT OF SCOPE: Twilio SMS lead alert webhook integration (must be quoted as an extra change order).
+- EXCLUDED / PHASE 2: Native WebRTC HIPAA video calling (flagged as out of scope, deferred to Phase 2).
+- UNCHANGED: 1,500 CSV doctor import, Stripe billing, verified doctor badges, and spam-protected lead capture.
+
+Dr. Marcus Vance: Spot on, Alex. Please update the Scope of Work and send over the revised proposal with the change order items clearly highlighted so I can get board approval tomorrow.
+
+Alex Rivera: Will do, Dr. Vance. You'll have the updated SOW and diff proposal by this evening.

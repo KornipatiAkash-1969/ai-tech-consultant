@@ -1,0 +1,38 @@
+[Meeting Transcript 1: Initial Discovery Call]
+Date: October 10, 2026
+Client: Metro Doctors Directory (Dr. Marcus Vance, Chief Medical Officer)
+Consultant: Alex Rivera (Senior AI Tech Consultant, BusinessLabs)
+Project: Metro Doctors Specialist Directory & Telehealth Onboarding
+
+Alex Rivera: Good morning, Dr. Vance. Thanks for hopping on the discovery call. I reviewed your initial inquiry. To kick things off, could you tell me the high-level vision for Metro Doctors Directory and what problems your current website is having?
+
+Dr. Marcus Vance: Thanks for taking the time, Alex. Right now, our hospital network and independent affiliated clinics have about 1,500 physicians across Greater New York. Our current website is an old WordPress site using a messy table plugin. Patients can't find doctors by specialty easily, and doctors can't manage their own bios. We want a modern directory on Brilliant Directories where patients can search by specialty, zip code radius, and accepted insurance plans.
+
+Alex Rivera: Understood. Search by specialty, location radius, and insurance filters. What about the physician registration process? Do doctors sign up themselves or do you import them?
+
+Dr. Marcus Vance: We have a master Excel spreadsheet with 1,500 doctors, their NPI license numbers, clinic addresses, and headshots. We need to import all of them on day one. After that, we want doctors to be able to log in to their own dashboard to update office hours, accepted insurance networks, and biography.
+
+Alex Rivera: Brilliant Directories has a built-in CSV member import tool and a self-service member dashboard. How are you handling membership tiers and monetization?
+
+Dr. Marcus Vance: We want two tiers. General Practitioners will be free or covered by the hospital network. But private specialist clinics—like orthopedic surgeons or private cosmetic dermatologists—should pay $99 per month for a featured listing with a 'Verified Board Certified' badge on search results. We use Stripe for hospital billing, so we need that connected.
+
+Alex Rivera: Got it. Recurring billing with Stripe and verified badges on premium tiers. Now, on the patient side: when a patient finds a doctor, what should they be able to do?
+
+Dr. Marcus Vance: They should see the doctor's phone number, office location on a map, and click an 'Inquire with Doctor' button. That should send a confidential lead email directly to the clinic's front desk receptionist without exposing the receptionist's direct personal email address on the public page to avoid spam.
+
+Alex Rivera: Brilliant Directories has a native lead capture and forwarding system that keeps member emails private. What about telehealth or external booking links?
+
+Dr. Marcus Vance: For now, if a doctor has an external booking link like Zocdoc or their clinic's EHR patient portal, they should just be able to paste that link in their profile so patients can click 'Book Online'. We don't need a full native electronic health records system right now—just the external link.
+
+Alex Rivera: Perfect. To summarize what we have so far:
+1. Directory setup with specialty, location radius, and insurance filtering.
+2. Initial bulk CSV import of 1,500 doctors with photos.
+3. Member dashboard with self-service profile management.
+4. Two-tier membership (Standard Free, Featured Specialist $99/mo with Verified Badge).
+5. Stripe gateway integration for automated monthly billing.
+6. Spam-protected lead capture forms routing to clinic receptionists.
+7. External booking URL field on doctor profiles.
+
+Dr. Marcus Vance: That captures it completely, Alex. That's exactly our baseline scope. We'd love to see a formal scope of work with an hour estimate and timeline.
+
+Alex Rivera: Excellent. I will run this through our technical team and prepare the Scope of Work and proposal for your review. Thanks Dr. Vance!

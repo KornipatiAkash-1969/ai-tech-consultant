@@ -1,0 +1,24 @@
+[Meeting Transcript 3: Initial Discovery Call]
+Date: October 15, 2026
+Client: GreenEats Sustainable Dining Portal (Elena Gomez, Founder & Sustainability Director)
+Consultant: Alex Rivera (Senior AI Tech Consultant, BusinessLabs)
+Project: Farm-to-Table Restaurant & Eco-Certified Eatery Directory
+
+Alex Rivera: Hi Elena, thanks for joining today. Tell me about GreenEats and what you're looking to build.
+
+Elena Gomez: Hi Alex! GreenEats is an online directory and discovery platform for eco-conscious diners who want to support certified organic, zero-waste, and farm-to-table restaurants in California. We currently have about 400 restaurants on an Airtable database, and we want to launch a professional public directory.
+
+Alex Rivera: That's a great mission. What are the key features restaurants and diners need?
+
+Elena Gomez: Three main things:
+1. Diners need to filter restaurants by dietary preference (Vegan, Gluten-Free, Organic) and sustainability attributes (Composting, Solar Powered, 100% Local Sourcing).
+2. Restaurants should be able to 'Claim Their Listing' if we already created it from public records, verify their business ownership, and upload high-resolution photos and menus.
+3. We want to sell digital restaurant coupons and gift vouchers directly on the restaurant profile, with GreenEats keeping a 10% processing fee.
+
+Alex Rivera: Excellent. Brilliant Directories actually has built-in add-ons for both 'Claim Listings' and 'Digital Products / Offers', which will save your startup thousands in custom code. How do you plan to handle restaurant onboarding and payments?
+
+Elena Gomez: Restaurants will pay $49/month for a Verified Eco-Badge listing or $490 annually. We want to accept Stripe payments and let restaurants update their weekly seasonal menus as PDF downloads or photo galleries.
+
+Alex Rivera: Perfectly aligned with Brilliant Directories standard architecture. We can import the 400 Airtable records via CSV, configure the Claim Listing workflow, set up the $49/mo Stripe tier, and enable the Digital Offers add-on.
+
+Elena Gomez: That sounds remarkably fast and within our budget. Please prepare a proposal!
