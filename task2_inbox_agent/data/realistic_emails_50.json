@@ -1,0 +1,502 @@
+[
+  {
+    "id": "em_001",
+    "sender": "dr.marcus@nyhealthgroup.org",
+    "sender_name": "Dr. Marcus Vance",
+    "subject": "How to configure Stripe for member subscription billing?",
+    "body": "Hi Support Team,\n\nWe are launching our medical directory next Monday and need to connect our Stripe gateway. Where in the admin panel do we input our Stripe API publishable and secret keys, and how do we test test-mode transactions before going live?\n\nThanks,\nDr. Marcus Vance",
+    "category": "how_to",
+    "urgency": "medium",
+    "received_at": "2026-10-12T09:15:00Z"
+  },
+  {
+    "id": "em_002",
+    "sender": "sara.conner@localbizdirectory.com",
+    "sender_name": "Sara Conner",
+    "subject": "Need help importing 3,500 local vendors via CSV",
+    "body": "Hello,\n\nI have a spreadsheet of 3,500 local businesses with addresses, phone numbers, and categories. What is the exact column header format required for the CSV import tool, and is there a limit on how many records I can upload in a single batch?\n\nBest,\nSara",
+    "category": "how_to",
+    "urgency": "medium",
+    "received_at": "2026-10-12T10:30:00Z"
+  },
+  {
+    "id": "em_003",
+    "sender": "david@carolinarealtors.net",
+    "sender_name": "David Miller",
+    "subject": "Social media icons not showing up on agent profiles",
+    "body": "Hello,\n\nOur real estate agents have filled in their LinkedIn and Twitter URLs in their member dashboards, but the social icons do not render on their public profile pages. Is there a master toggle in General Settings that we missed?\n\nDavid",
+    "category": "how_to",
+    "urgency": "low",
+    "received_at": "2026-10-12T11:45:00Z"
+  },
+  {
+    "id": "em_004",
+    "sender": "priya.sharma@austintechhub.io",
+    "sender_name": "Priya Sharma",
+    "subject": "Mass email campaign question - send limits and SMTP",
+    "body": "Hey team,\n\nCan we send a monthly newsletter to all 8,000 registered members directly through Brilliant Directories, or do you recommend connecting an external SMTP relay like SendGrid or Mailgun? Where do we enter the SMTP credentials?\n\nRegards,\nPriya",
+    "category": "how_to",
+    "urgency": "medium",
+    "received_at": "2026-10-12T13:10:00Z"
+  },
+  {
+    "id": "em_005",
+    "sender": "tom.hanks@midwestcontractors.org",
+    "sender_name": "Tom Hanks",
+    "subject": "How to set up email forwarders for admin addresses?",
+    "body": "Hi,\n\nWe want info@midwestcontractors.org to forward all incoming emails to our Gmail inbox. How do we create email forwarders inside the Brilliant Directories dashboard?\n\nTom",
+    "category": "how_to",
+    "urgency": "low",
+    "received_at": "2026-10-12T14:20:00Z"
+  },
+  {
+    "id": "em_006",
+    "sender": "elena.rostova@fitnessprodir.com",
+    "sender_name": "Elena Rostova",
+    "subject": "Google Maps API key error on location search",
+    "body": "Hi support,\n\nOur location search bar shows 'For development purposes only' watermark across Google Maps. Where do we paste our official Google Maps API key and which APIs must be enabled in Google Cloud Console?\n\nElena",
+    "category": "how_to",
+    "urgency": "high",
+    "received_at": "2026-10-12T15:05:00Z"
+  },
+  {
+    "id": "em_007",
+    "sender": "carlos.m@weddingplannersnetwork.es",
+    "sender_name": "Carlos Mendez",
+    "subject": "How to enable verified badges on premium membership tiers?",
+    "body": "Hello,\n\nWe want our 'Gold' and 'Diamond' wedding planners to display a verified checkmark badge on search results. How do we configure verified member badges per membership plan?\n\nThanks,\nCarlos",
+    "category": "how_to",
+    "urgency": "low",
+    "received_at": "2026-10-12T16:40:00Z"
+  },
+  {
+    "id": "em_008",
+    "sender": "linda.wu@vancouverhealth.ca",
+    "sender_name": "Linda Wu",
+    "subject": "Customizing member signup form fields",
+    "body": "Hi,\n\nWe need to add a mandatory 'Medical License Number' field and a file upload field for malpractice insurance certificates during physician registration. How do we customize the member signup form?\n\nBest,\nLinda",
+    "category": "how_to",
+    "urgency": "medium",
+    "received_at": "2026-10-12T17:15:00Z"
+  },
+  {
+    "id": "em_009",
+    "sender": "mark.stevens@craftbeertrail.com",
+    "sender_name": "Mark Stevens",
+    "subject": "How to set up 301 redirects for old directory URLs?",
+    "body": "Hello,\n\nWe are migrating from an old custom PHP directory and have about 200 URLs that need 301 redirects so we don't lose our Google search rankings. Where is the 301 redirect manager located in the admin panel?\n\nMark",
+    "category": "how_to",
+    "urgency": "medium",
+    "received_at": "2026-10-12T18:00:00Z"
+  },
+  {
+    "id": "em_010",
+    "sender": "chloe.b@frenchtutors.fr",
+    "sender_name": "Chloe Bernard",
+    "subject": "Setting up multiple currency pricing for European members",
+    "body": "Bonjour,\n\nCan we charge UK tutors in GBP and French tutors in EUR on the same Brilliant Directories installation, or does each site support only one primary default currency?\n\nMerci,\nChloe",
+    "category": "how_to",
+    "urgency": "low",
+    "received_at": "2026-10-12T18:50:00Z"
+  },
+  {
+    "id": "em_011",
+    "sender": "anthony.ross@apexlegal.com",
+    "sender_name": "Anthony Ross",
+    "subject": "New Project: Custom iOS and Android App for Legal Directory",
+    "body": "Hi there,\n\nWe have 12,000 attorneys listed on our platform and our board wants a dedicated iOS and Android mobile app with push notifications when a client requests a consultation. Can your team build this for us? What would the architecture look like?\n\nAnthony Ross\nManaging Partner, Apex Legal",
+    "category": "new_project",
+    "urgency": "high",
+    "received_at": "2026-10-13T08:30:00Z"
+  },
+  {
+    "id": "em_012",
+    "sender": "jessica.t@petcarepros.com",
+    "sender_name": "Jessica Taylor",
+    "subject": "New Project: Complete redesign of homepage and search UI",
+    "body": "Hello,\n\nOur current site looks outdated. We hired a UI designer who created Figma designs for a clean Airbnb-style hero search, modern category cards, and interactive map preview. We need a frontend developer to implement these custom widgets into our Brilliant Directories theme.\n\nJessica",
+    "category": "new_project",
+    "urgency": "medium",
+    "received_at": "2026-10-13T09:45:00Z"
+  },
+  {
+    "id": "em_013",
+    "sender": "samir.k@globalarchitects.org",
+    "sender_name": "Samir Khan",
+    "subject": "New Project: Real-time project bidding marketplace extension",
+    "body": "Hi Team,\n\nWe want homeowners to post remodeling projects, and have certified architects receive SMS alerts and bid on projects with tokens. Is this something that can be custom engineered on top of our existing directory?\n\nSamir",
+    "category": "new_project",
+    "urgency": "medium",
+    "received_at": "2026-10-13T11:00:00Z"
+  },
+  {
+    "id": "em_014",
+    "sender": "rachel.adams@coachingnetwork.com",
+    "sender_name": "Rachel Adams",
+    "subject": "New Project: Automated Zoom and Calendly booking integration",
+    "body": "Hello,\n\nWe want our executive coaches to sync their Calendly or Google Calendar directly onto their profile so clients can book paid 1-on-1 strategy sessions without leaving our platform. Can you develop this custom integration?\n\nRachel",
+    "category": "new_project",
+    "urgency": "medium",
+    "received_at": "2026-10-13T12:15:00Z"
+  },
+  {
+    "id": "em_015",
+    "sender": "vikram.patel@indiastartups.in",
+    "sender_name": "Vikram Patel",
+    "subject": "New Project: Razorpay payment gateway integration",
+    "body": "Hi Consultant,\n\n95% of our users are in India and we need Razorpay integrated alongside Stripe for UPI and local net-banking transactions. Can you build a custom payment gateway bridge for us?\n\nVikram",
+    "category": "new_project",
+    "urgency": "high",
+    "received_at": "2026-10-13T13:40:00Z"
+  },
+  {
+    "id": "em_016",
+    "sender": "monica.g@weddingsandevents.org",
+    "sender_name": "Monica Geller",
+    "subject": "New Project: Multi-vendor marketplace with automated payouts",
+    "body": "Hi,\n\nWe want our directory to sell event tickets and vendor services, taking a 12% platform commission and automatically paying out the remaining 88% to the vendor via Stripe Connect transfers. Can you scope this out?\n\nMonica",
+    "category": "new_project",
+    "urgency": "medium",
+    "received_at": "2026-10-13T14:55:00Z"
+  },
+  {
+    "id": "em_017",
+    "sender": "steve.b@autogarages.co.uk",
+    "sender_name": "Steve Brown",
+    "subject": "New Project: License plate lookup API integration for MOT records",
+    "body": "Hello,\n\nIn the UK, when a driver enters their vehicle registration plate, we want our directory to query the DVLA API to pull car make, model, and year before showing local garages. Can you build this custom API lookup widget?\n\nSteve",
+    "category": "new_project",
+    "urgency": "medium",
+    "received_at": "2026-10-13T16:20:00Z"
+  },
+  {
+    "id": "em_018",
+    "sender": "nadia.k@artisanbakers.de",
+    "sender_name": "Nadia Keller",
+    "subject": "New Project: Full German localization and GDPR cookie consent engine",
+    "body": "Guten Tag,\n\nWe need our entire Brilliant Directories platform translated into German with formal address (Sie), strict GDPR cookie consent banner, and impressum legal compliance. Do you offer turnkey localization services?\n\nNadia",
+    "category": "new_project",
+    "urgency": "low",
+    "received_at": "2026-10-13T17:30:00Z"
+  },
+  {
+    "id": "em_019",
+    "sender": "kevin.durant@ballersdirectory.com",
+    "sender_name": "Kevin Durant",
+    "subject": "Accidental annual renewal charge - Refund request",
+    "body": "Hi Billing,\n\nMy credit card was just charged $450 for the annual VIP membership renewal this morning (Invoice #BD-98214). I meant to switch to monthly or cancel last week as our basketball camp is on pause. Could you please refund this charge?\n\nThank you,\nKevin",
+    "category": "refund",
+    "urgency": "high",
+    "received_at": "2026-10-14T08:10:00Z"
+  },
+  {
+    "id": "em_020",
+    "sender": "alyssa.milano@actorsguild.net",
+    "sender_name": "Alyssa Milano",
+    "subject": "Duplicate billing on card statement",
+    "body": "Hello,\n\nI checked my bank statement today and see two identical charges of $79.00 on Oct 11th from your service. Please reverse the duplicate charge as soon as possible.\n\nAlyssa",
+    "category": "refund",
+    "urgency": "high",
+    "received_at": "2026-10-14T09:25:00Z"
+  },
+  {
+    "id": "em_021",
+    "sender": "brian.cox@scotlandtours.co.uk",
+    "sender_name": "Brian Cox",
+    "subject": "Refund request for unneeded Digital Products Add-On",
+    "body": "Dear Support,\n\nYesterday I purchased the Digital Products Add-on for $149 thinking it allowed recurring subscriptions, but learned that feature is already in the core platform. Since I have not activated the add-on, can I please get a full refund?\n\nRegards,\nBrian",
+    "category": "refund",
+    "urgency": "medium",
+    "received_at": "2026-10-14T10:50:00Z"
+  },
+  {
+    "id": "em_022",
+    "sender": "teresa.may@seniorservices.org",
+    "sender_name": "Teresa May",
+    "subject": "Canceled subscription 1 day before renewal - please refund",
+    "body": "Hi,\n\nI submitted a cancellation ticket on Oct 12th, but the automated system still processed the $120 renewal on Oct 13th. Please refund this transaction promptly.\n\nTeresa",
+    "category": "refund",
+    "urgency": "high",
+    "received_at": "2026-10-14T11:40:00Z"
+  },
+  {
+    "id": "em_023",
+    "sender": "george.c@chiropractorsusa.com",
+    "sender_name": "George Clark",
+    "subject": "Purchased wrong directory theme - Refund or credit exchange",
+    "body": "Hello,\n\nI accidentally purchased the Real Estate Directory Child Theme instead of the Medical Directory Theme. Please either refund the $99 or apply it as a credit to the Medical theme.\n\nGeorge",
+    "category": "refund",
+    "urgency": "medium",
+    "received_at": "2026-10-14T13:00:00Z"
+  },
+  {
+    "id": "em_024",
+    "sender": "fiona.gallagher@chicagojobs.biz",
+    "sender_name": "Fiona Gallagher",
+    "subject": "Platform trial refund request",
+    "body": "Hi,\n\nWe tested the directory platform for 5 days but found it doesn't support our multi-tier franchisor hierarchy out of the box. Under your 14-day money back guarantee, please process our full refund of $199.\n\nFiona",
+    "category": "refund",
+    "urgency": "medium",
+    "received_at": "2026-10-14T14:15:00Z"
+  },
+  {
+    "id": "em_025",
+    "sender": "arthur.dent@galaxyguide.org",
+    "sender_name": "Arthur Dent",
+    "subject": "Refund for unused setup consulting hours",
+    "body": "Hello,\n\nWe prepaid for a 5-hour developer onboarding package ($500) but our internal team ended up completing the setup independently. Could you please refund the unused consulting retainer?\n\nArthur",
+    "category": "refund",
+    "urgency": "low",
+    "received_at": "2026-10-14T15:30:00Z"
+  },
+  {
+    "id": "em_026",
+    "sender": "marta.s@lisbonproperties.pt",
+    "sender_name": "Marta Silva",
+    "subject": "Billing issue - Currency exchange discrepancy refund",
+    "body": "Hi Billing,\n\nWe were billed in USD instead of EUR due to a checkout currency glitch, which cost us an extra 42 EUR in bank conversion fees. Can you credit our account?\n\nMarta",
+    "category": "refund",
+    "urgency": "low",
+    "received_at": "2026-10-14T16:45:00Z"
+  },
+  {
+    "id": "em_027",
+    "sender": "brad.pitt@hollywoodpros.com",
+    "sender_name": "Brad Pitt",
+    "subject": "URGENT: All transactional notification emails are going to SPAM!",
+    "body": "Support,\n\nThis is unacceptable. Our paying members are not receiving their password reset or lead notification emails because everything is landing in Gmail and Outlook spam folders. We are losing business by the hour. Fix this immediately!\n\nBrad",
+    "category": "complaint",
+    "urgency": "high",
+    "received_at": "2026-10-15T08:00:00Z"
+  },
+  {
+    "id": "em_028",
+    "sender": "olivia.pope@crisismanagement.com",
+    "sender_name": "Olivia Pope",
+    "subject": "CRITICAL: Member signup form throwing 500 Server Error",
+    "body": "Team,\n\nWhenever a new user clicks 'Complete Registration', the screen displays an HTTP 500 Internal Server Error. Nobody can register today during our major PR press release. This needs immediate P0 escalation.\n\nOlivia",
+    "category": "complaint",
+    "urgency": "high",
+    "received_at": "2026-10-15T08:45:00Z"
+  },
+  {
+    "id": "em_029",
+    "sender": "walter.white@albuquerquechemists.org",
+    "sender_name": "Walter White",
+    "subject": "Site speed has degraded drastically - 9 second load time",
+    "body": "Hello,\n\nOur directory homepage took 9.2 seconds to load on GTmetrix today. Mobile performance is completely red. We pay for the VIP cloud hosting tier and expect sub-2 second load times. Please investigate server bottlenecks immediately.\n\nWalter",
+    "category": "complaint",
+    "urgency": "high",
+    "received_at": "2026-10-15T09:30:00Z"
+  },
+  {
+    "id": "em_030",
+    "sender": "carol.peletier@georgiafarmers.org",
+    "sender_name": "Carol Peletier",
+    "subject": "Search results showing deleted member profiles!",
+    "body": "Hi,\n\nWe deleted two suspended vendors three days ago, but their profiles and phone numbers are still appearing in the main search results and Google indexed pages. Why is the search index not updating?\n\nCarol",
+    "category": "complaint",
+    "urgency": "medium",
+    "received_at": "2026-10-15T10:15:00Z"
+  },
+  {
+    "id": "em_031",
+    "sender": "harvey.specter@pearsonhardman.com",
+    "sender_name": "Harvey Specter",
+    "subject": "SSL Certificate expired error showing to all visitors",
+    "body": "Your support was supposed to ensure automatic SSL renewal. Right now every user visiting our site gets a chrome security warning saying 'Your connection is not private'. You have 30 minutes to get the SSL certificate re-issued.\n\nHarvey",
+    "category": "complaint",
+    "urgency": "high",
+    "received_at": "2026-10-15T11:00:00Z"
+  },
+  {
+    "id": "em_032",
+    "sender": "donna.paulsen@legalexecutives.com",
+    "sender_name": "Donna Paulsen",
+    "subject": "Platform update wiped out our custom CSS styling",
+    "body": "Hi,\n\nAfter last night's system maintenance, our header branding, custom typography, and button styling reverted to the default blue template. Where is our backup and why did an update overwrite our child theme CSS?\n\nDonna",
+    "category": "complaint",
+    "urgency": "high",
+    "received_at": "2026-10-15T12:20:00Z"
+  },
+  {
+    "id": "em_033",
+    "sender": "jon.snow@winterfellsecurity.co.uk",
+    "sender_name": "Jon Snow",
+    "subject": "Lead routing emails going to wrong business categories",
+    "body": "Hi,\n\nWhen a customer requests a quote for 'CCTV Installation', the lead is being emailed to our 'Locksmith' members. The automated category matching algorithm has been broken since Tuesday.\n\nJon",
+    "category": "complaint",
+    "urgency": "medium",
+    "received_at": "2026-10-15T13:45:00Z"
+  },
+  {
+    "id": "em_034",
+    "sender": "arya.stark@bravosadventures.com",
+    "sender_name": "Arya Stark",
+    "subject": "Invoices not automatically generating for membership renewals",
+    "body": "Support,\n\nOur corporate accountants require PDF receipts for tax purposes. For the last 2 months, renewal transactions in Stripe are not creating PDF invoices in the member dashboard. Please resolve this bug.\n\nArya",
+    "category": "complaint",
+    "urgency": "medium",
+    "received_at": "2026-10-15T14:30:00Z"
+  },
+  {
+    "id": "em_035",
+    "sender": "frank.castle@securityconsultants.us",
+    "sender_name": "Frank Castle",
+    "subject": "Quote Request: Full data migration of 40,000 members from WordPress",
+    "body": "Hi,\n\nWe need a formal quote and timeline to migrate 40,000 verified security specialists, including custom profile fields, uploaded PDF credentials, and review histories from a legacy WordPress / GeoDirectory database into Brilliant Directories.\n\nFrank",
+    "category": "quote",
+    "urgency": "medium",
+    "received_at": "2026-10-15T15:15:00Z"
+  },
+  {
+    "id": "em_036",
+    "sender": "peggy.olson@sterlingcooper.com",
+    "sender_name": "Peggy Olson",
+    "subject": "Quote Request: Custom advertising banner management system",
+    "body": "Hello,\n\nWe would like a quote to build an advanced banner ad rotation engine that allows advertisers to purchase monthly sidebar and header impressions, upload creative banners, and view a live click-through-rate analytics dashboard.\n\nPeggy",
+    "category": "quote",
+    "urgency": "medium",
+    "received_at": "2026-10-15T16:00:00Z"
+  },
+  {
+    "id": "em_037",
+    "sender": "saul.goodman@bettercallsaul.law",
+    "sender_name": "Saul Goodman",
+    "subject": "Quote Request: Twilio SMS lead notification integration",
+    "body": "Hey folks,\n\nWhen someone submits a high-value personal injury lead on our directory, we need an instant SMS sent to the member's cell phone via Twilio so they can call the client back in under 60 seconds. What is your estimated cost to set this up?\n\nSaul",
+    "category": "quote",
+    "urgency": "medium",
+    "received_at": "2026-10-15T16:45:00Z"
+  },
+  {
+    "id": "em_038",
+    "sender": "bruce.wayne@gothamenterprises.com",
+    "sender_name": "Bruce Wayne",
+    "subject": "Quote Request: Enterprise Single Sign-On (SSO) with Okta",
+    "body": "Good day,\n\nGotham Enterprises requires SAML 2.0 / Okta SSO authentication for all 800 corporate employees accessing our internal vendor directory. Please provide an engineering proposal with timeline and fixed-price quotation.\n\nBruce Wayne",
+    "category": "quote",
+    "urgency": "high",
+    "received_at": "2026-10-15T17:30:00Z"
+  },
+  {
+    "id": "em_039",
+    "sender": "natasha.romanoff@avengersshield.org",
+    "sender_name": "Natasha Romanoff",
+    "subject": "Quote Request: Custom radius search with interactive polygon filters",
+    "body": "Hi,\n\nWe need our map search to allow users to draw custom polygon boundaries on Google Maps to filter security operatives within specific geographic defense perimeters. Please quote developer hours.\n\nNatasha",
+    "category": "quote",
+    "urgency": "medium",
+    "received_at": "2026-10-15T18:10:00Z"
+  },
+  {
+    "id": "em_040",
+    "sender": "tony.stark@starkindustries.com",
+    "sender_name": "Tony Stark",
+    "subject": "Quote Request: Automated Zapier / Webhook pipeline to Salesforce CRM",
+    "body": "Hi,\n\nWhenever a platinum vendor joins or upgrades their tier, we need two-way webhook syncing with our Salesforce Enterprise CRM and Slack alert channel. Send over an itemized scope and quote.\n\nTony",
+    "category": "quote",
+    "urgency": "medium",
+    "received_at": "2026-10-15T19:00:00Z"
+  },
+  {
+    "id": "em_041",
+    "sender": "clark.kent@dailyplanet.com",
+    "sender_name": "Clark Kent",
+    "subject": "Quote Request: Turnkey SEO and schema markup optimization package",
+    "body": "Hello,\n\nWe need an SEO audit and implementation of Schema.org LocalBusiness, Physician, and AggregateRating structured data across 15,000 member pages to earn rich Google snippets. What would this project cost?\n\nClark",
+    "category": "quote",
+    "urgency": "low",
+    "received_at": "2026-10-15T19:45:00Z"
+  },
+  {
+    "id": "em_042",
+    "sender": "diana.prince@themysciraheritage.org",
+    "sender_name": "Diana Prince",
+    "subject": "Quote Request: Multi-language directory switcher (English, Spanish, Greek)",
+    "body": "Greetings,\n\nWe want to quote a multi-lingual system where all directory UI elements, category labels, and search filters automatically switch based on visitor browser language. Please provide an estimate.\n\nDiana",
+    "category": "quote",
+    "urgency": "low",
+    "received_at": "2026-10-15T20:30:00Z"
+  },
+  {
+    "id": "em_043",
+    "sender": "barry.allen@centralcityspeed.org",
+    "sender_name": "Barry Allen",
+    "subject": "Follow-up: Status of custom search filter widget (Ticket #3910)",
+    "body": "Hi Support,\n\nJust checking in on Ticket #3910 regarding our custom radius search filter widget. Last Friday you mentioned developer testing would conclude by Wednesday. Can you share a staging preview link?\n\nThanks,\nBarry",
+    "category": "follow_up",
+    "urgency": "medium",
+    "received_at": "2026-10-16T08:15:00Z"
+  },
+  {
+    "id": "em_044",
+    "sender": "luke.skywalker@jediacademy.org",
+    "sender_name": "Luke Skywalker",
+    "subject": "Follow-up: Unresolved bug on Stripe webhook listener (Ticket #3884)",
+    "body": "Hello,\n\nFollowing up on our conversation from Tuesday. Our Stripe subscription webhooks are still returning 400 Bad Request errors in Stripe Dashboard, so upgraded members are not getting their premium status updated. Any progress on this fix?\n\nLuke",
+    "category": "follow_up",
+    "urgency": "high",
+    "received_at": "2026-10-16T09:00:00Z"
+  },
+  {
+    "id": "em_045",
+    "sender": "leia.organa@alderaanrebellion.org",
+    "sender_name": "Leia Organa",
+    "subject": "Follow-up: Checking ETA for member CSV data cleansing",
+    "body": "Dear Consultant,\n\nWe sent over our cleaned member CSV spreadsheet 48 hours ago for manual database import. Could you please confirm if the import has started and when we can review the live directory?\n\nWarm regards,\nLeia",
+    "category": "follow_up",
+    "urgency": "medium",
+    "received_at": "2026-10-16T09:45:00Z"
+  },
+  {
+    "id": "em_046",
+    "sender": "han.solo@falconlogistics.com",
+    "sender_name": "Han Solo",
+    "subject": "Follow-up: Mobile navigation menu staging link review",
+    "body": "Hey team,\n\nIs the custom hamburger menu ready for us to test on iPhone and Android? You mentioned you would push it to staging today.\n\nHan",
+    "category": "follow_up",
+    "urgency": "medium",
+    "received_at": "2026-10-16T10:30:00Z"
+  },
+  {
+    "id": "em_047",
+    "sender": "gandalf.grey@middleearthtours.org",
+    "sender_name": "Gandalf the Grey",
+    "subject": "Follow-up: Did our Google Maps API quota increase take effect?",
+    "body": "Greetings,\n\nFollowing up on our billing ticket yesterday where we upgraded our Google Maps geocoding quota. Has the new API key been deployed to the live production server yet?\n\nGandalf",
+    "category": "follow_up",
+    "urgency": "low",
+    "received_at": "2026-10-16T11:15:00Z"
+  },
+  {
+    "id": "em_048",
+    "sender": "frodo.baggins@theshirehorticulture.com",
+    "sender_name": "Frodo Baggins",
+    "subject": "Follow-up: Status of accidental charge refund from Oct 13",
+    "body": "Hello,\n\nI was told on Monday that my $99 duplicate subscription fee would be refunded within 3-5 business days. Can you provide the Stripe refund ARN or reference number?\n\nThank you,\nFrodo",
+    "category": "follow_up",
+    "urgency": "medium",
+    "received_at": "2026-10-16T12:00:00Z"
+  },
+  {
+    "id": "em_049",
+    "sender": "sherlock.holmes@221bbakerstreet.co.uk",
+    "sender_name": "Sherlock Holmes",
+    "subject": "Follow-up: Scope of Work document review for Private Investigators portal",
+    "body": "Gentlemen,\n\nWe concluded our second discovery call on Wednesday regarding the investigator credentialing module. When will the formal Scope of Work and developer hours estimate be ready for our board to sign?\n\nSherlock",
+    "category": "follow_up",
+    "urgency": "medium",
+    "received_at": "2026-10-16T13:10:00Z"
+  },
+  {
+    "id": "em_050",
+    "sender": "john.watson@221bbakerstreet.co.uk",
+    "sender_name": "Dr. John Watson",
+    "subject": "Follow-up: Training session recording link for admin staff",
+    "body": "Hi Support,\n\nCould you please send over the Zoom cloud recording link and passcode from yesterday's training session on managing leads and membership refunds?\n\nBest wishes,\nDr. John Watson",
+    "category": "follow_up",
+    "urgency": "low",
+    "received_at": "2026-10-16T14:00:00Z"
+  }
+]

@@ -1,0 +1,68 @@
+{
+  "how_to": {
+    "category": "how_to",
+    "consecutive_approvals": 0,
+    "threshold": 20,
+    "is_autonomous": false,
+    "total_processed": 20,
+    "total_auto_sent": 0,
+    "regressions_count": 2,
+    "last_regression_reason": "Customer complained about inaccurate documentation URL",
+    "last_updated": "2026-10-16T10:36:50.419Z"
+  },
+  "new_project": {
+    "category": "new_project",
+    "consecutive_approvals": 0,
+    "threshold": 20,
+    "is_autonomous": false,
+    "total_processed": 0,
+    "total_auto_sent": 0,
+    "regressions_count": 0,
+    "last_regression_reason": null,
+    "last_updated": "2026-10-16T10:36:50.313Z"
+  },
+  "refund": {
+    "category": "refund",
+    "consecutive_approvals": 0,
+    "threshold": 20,
+    "is_autonomous": false,
+    "total_processed": 0,
+    "total_auto_sent": 0,
+    "regressions_count": 0,
+    "last_regression_reason": null,
+    "last_updated": "2026-10-16T10:36:50.313Z"
+  },
+  "complaint": {
+    "category": "complaint",
+    "consecutive_approvals": 0,
+    "threshold": 20,
+    "is_autonomous": false,
+    "total_processed": 0,
+    "total_auto_sent": 0,
+    "regressions_count": 0,
+    "last_regression_reason": null,
+    "last_updated": "2026-10-16T10:36:50.313Z"
+  },
+  "quote": {
+    "category": "quote",
+    "consecutive_approvals": 0,
+    "threshold": 20,
+    "is_autonomous": false,
+    "total_processed": 0,
+    "total_auto_sent": 0,
+    "regressions_count": 0,
+    "last_regression_reason": null,
+    "last_updated": "2026-10-16T10:36:50.313Z"
+  },
+  "follow_up": {
+    "category": "follow_up",
+    "consecutive_approvals": 0,
+    "threshold": 20,
+    "is_autonomous": false,
+    "total_processed": 0,
+    "total_auto_sent": 0,
+    "regressions_count": 0,
+    "last_regression_reason": null,
+    "last_updated": "2026-10-16T10:36:50.313Z"
+  }
+}
