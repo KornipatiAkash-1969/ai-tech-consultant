@@ -2,7 +2,6 @@
 
 <div align="center">
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](#license)
 [![Python 3.13](https://img.shields.io/badge/Python-3.13-3776AB.svg?logo=python&logoColor=white)](https://python.org)
 [![Strict TypeScript](https://img.shields.io/badge/TypeScript-Strict_5.x-3178C6.svg?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![React 19](https://img.shields.io/badge/React-19_Vite-61DAFB.svg?logo=react&logoColor=black)](https://react.dev)
@@ -338,9 +337,3 @@ ai-tech-consultant/
 ├── run.sh                           # Linux/macOS one-command launcher
 └── README.md                        # System documentation
 ```
-
----
-
-## License
-
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details. Developed as part of the Anthropic Applied AI Developer/Engineer Capstone.
