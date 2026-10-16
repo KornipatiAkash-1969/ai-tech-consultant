@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 300" width="100%" height="100%">
+  <defs>
+    <linearGradient id="pBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080a12" />
+      <stop offset="100%" stop-color="#0e1324" />
+    </linearGradient>
+    <linearGradient id="pCard" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#14192b" />
+      <stop offset="100%" stop-color="#0b0e1a" />
+    </linearGradient>
+  </defs>
+
+  <rect width="940" height="300" rx="12" fill="url(#pBg)" stroke="#1e263d" stroke-width="1.5" />
+  
+  <text x="30" y="36" fill="#ffffff" font-family="-apple-system, Inter, sans-serif" font-weight="700" font-size="16">TASK 3: 5-AGENT SCOPE OF WORK PIPELINE</text>
+  <text x="30" y="54" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">Raw Unstructured Meeting Transcript ➔ Itemized Verified Client Proposal</text>
+
+  <!-- Agent 1 -->
+  <g transform="translate(30, 80)">
+    <rect width="160" height="180" rx="8" fill="url(#pCard)" stroke="#00d2ff" stroke-width="1.5" />
+    <circle cx="28" cy="28" r="12" fill="#00d2ff" fill-opacity="0.15" />
+    <text x="28" y="32" fill="#00d2ff" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">1</text>
+    <text x="48" y="32" fill="#ffffff" font-family="-apple-system, Inter, sans-serif" font-weight="700" font-size="12">Senior Consultant</text>
+    <text x="14" y="60" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9.5">• Ingests messy text</text>
+    <text x="14" y="76" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9.5">• Dissects speaker turns</text>
+    <text x="14" y="92" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9.5">• Extracts client needs</text>
+    <text x="14" y="108" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9.5">• Flags tech constraints</text>
+    <rect x="14" y="136" width="132" height="24" rx="4" fill="#00d2ff" fill-opacity="0.1" />
+    <text x="80" y="152" fill="#00d2ff" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">Reqs &amp; Constraints</text>
+  </g>
+
+  <!-- Arrow 1-2 -->
+  <path d="M 195 170 L 215 170" stroke="#00d2ff" stroke-width="2" />
+
+  <!-- Agent 2 -->
+  <g transform="translate(220, 80)">
+    <rect width="160" height="180" rx="8" fill="url(#pCard)" stroke="#10b981" stroke-width="1.5" />
+    <circle cx="28" cy="28" r="12" fill="#10b981" fill-opacity="0.15" />
+    <text x="28" y="32" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">2</text>
+    <text x="48" y="32" fill="#ffffff" font-family="-apple-system, Inter, sans-serif" font-weight="700" font-size="12">Feature Matcher</text>
+    <text x="14" y="60" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9.5">• Queries Knowledge Brain</text>
+    <text x="14" y="76" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="9.5">• Built-in vs Custom</text>
+    <text x="14" y="92" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="9.5">• $5,700 Client Savings</text>
+    <text x="14" y="108" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9.5">• Solution Center docs</text>
+    <rect x="14" y="136" width="132" height="24" rx="4" fill="#10b981" fill-opacity="0.1" />
+    <text x="80" y="152" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">Platform Mappings</text>
+  </g>
+
+  <!-- Arrow 2-3 -->
+  <path d="M 385 170 L 405 170" stroke="#10b981" stroke-width="2" />
+
+  <!-- Agent 3 -->
+  <g transform="translate(410, 80)">
+    <rect width="160" height="180" rx="8" fill="url(#pCard)" stroke="#818cf8" stroke-width="1.5" />
+    <circle cx="28" cy="28" r="12" fill="#818cf8" fill-opacity="0.15" />
+    <text x="28" y="32" fill="#818cf8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">3</text>
+    <text x="48" y="32" fill="#ffffff" font-family="-apple-system, Inter, sans-serif" font-weight="700" font-size="12">Dev Estimator</text>
+    <text x="14" y="60" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9.5">• Complexity tiering</text>
+    <text x="14" y="76" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9.5">• 1h settings vs 18h dev</text>
+    <text x="14" y="92" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9.5">• Hourly cost modeling</text>
+    <text x="14" y="108" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9.5">• Phase 1 vs Phase 2</text>
+    <rect x="14" y="136" width="132" height="24" rx="4" fill="#818cf8" fill-opacity="0.1" />
+    <text x="80" y="152" fill="#818cf8" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">Estimates &amp; Hours</text>
+  </g>
+
+  <!-- Arrow 3-4 -->
+  <path d="M 575 170 L 595 170" stroke="#818cf8" stroke-width="2" />
+
+  <!-- Agent 4 -->
+  <g transform="translate(600, 80)">
+    <rect width="150" height="180" rx="8" fill="url(#pCard)" stroke="#f59e0b" stroke-width="1.5" />
+    <circle cx="28" cy="28" r="12" fill="#f59e0b" fill-opacity="0.15" />
+    <text x="28" y="32" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">4</text>
+    <text x="48" y="32" fill="#ffffff" font-family="-apple-system, Inter, sans-serif" font-weight="700" font-size="12">Scope Diff</text>
+    <text x="14" y="60" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9.5">• Compares to Base</text>
+    <text x="14" y="76" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="9.5">• Catches scope creep</text>
+    <text x="14" y="92" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9.5">• Twilio SMS flagged</text>
+    <text x="14" y="108" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9.5">• Change order draft</text>
+    <rect x="14" y="136" width="122" height="24" rx="4" fill="#f59e0b" fill-opacity="0.1" />
+    <text x="75" y="152" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">Delta Audit</text>
+  </g>
+
+  <!-- Arrow 4-5 -->
+  <path d="M 755 170 L 775 170" stroke="#f59e0b" stroke-width="2" />
+
+  <!-- Agent 5 -->
+  <g transform="translate(780, 80)">
+    <rect width="130" height="180" rx="8" fill="url(#pCard)" stroke="#10b981" stroke-width="1.5" />
+    <circle cx="28" cy="28" r="12" fill="#10b981" fill-opacity="0.15" />
+    <text x="28" y="32" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">5</text>
+    <text x="48" y="32" fill="#ffffff" font-family="-apple-system, Inter, sans-serif" font-weight="700" font-size="12">Proposal</text>
+    <text x="14" y="60" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9.5">• Formal legal SOW</text>
+    <text x="14" y="76" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9.5">• Milestone tables</text>
+    <text x="14" y="92" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="9.5">• Human Sign-off</text>
+    <text x="14" y="108" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9.5">• Client delivery</text>
+    <rect x="14" y="136" width="102" height="24" rx="4" fill="#10b981" fill-opacity="0.1" />
+    <text x="65" y="152" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">Final SOW</text>
+  </g>
+</svg>

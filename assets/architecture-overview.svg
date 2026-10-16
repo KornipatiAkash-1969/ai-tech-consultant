@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080a11" />
+      <stop offset="100%" stop-color="#0e1322" />
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00d2ff" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#14192a" />
+      <stop offset="100%" stop-color="#0d111e" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1000" height="420" rx="14" fill="url(#bgGrad)" stroke="#1e263d" stroke-width="2" />
+  
+  <!-- Subtle Grid Lines -->
+  <g stroke="#ffffff" stroke-opacity="0.03" stroke-width="1">
+    <line x1="0" y1="70" x2="1000" y2="70" />
+    <line x1="0" y1="140" x2="1000" y2="140" />
+    <line x1="0" y1="210" x2="1000" y2="210" />
+    <line x1="0" y1="280" x2="1000" y2="280" />
+    <line x1="0" y1="350" x2="1000" y2="350" />
+    <line x1="200" y1="0" x2="200" y2="420" />
+    <line x1="400" y1="0" x2="400" y2="420" />
+    <line x1="600" y1="0" x2="600" y2="420" />
+    <line x1="800" y1="0" x2="800" y2="420" />
+  </g>
+
+  <!-- Header Section -->
+  <rect x="30" y="24" width="36" height="36" rx="8" fill="url(#cyanGrad)" filter="url(#glow)" />
+  <path d="M48 30 L40 44 L47 44 L45 54 L56 40 L49 40 Z" fill="#060913" />
+  <text x="80" y="44" fill="#ffffff" font-family="-apple-system, Inter, sans-serif" font-weight="700" font-size="18" letter-spacing="-0.3">AI TECH CONSULTANT</text>
+  <text x="80" y="60" fill="#00d2ff" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" letter-spacing="1">SYSTEM ARCHITECTURE // ANTHROPIC APPLIED AI</text>
+  
+  <!-- Status Badge -->
+  <rect x="800" y="30" width="168" height="26" rx="13" fill="#10b981" fill-opacity="0.12" stroke="#10b981" stroke-width="1" />
+  <circle cx="816" cy="43" r="4" fill="#10b981" />
+  <text x="828" y="47" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="700">60/60 EVALS PASSED (91.7%)</text>
+
+  <!-- Top Controller: React Frontend -->
+  <rect x="250" y="86" width="500" height="54" rx="10" fill="url(#cardGrad)" stroke="#00d2ff" stroke-width="1.5" />
+  <text x="500" y="112" fill="#ffffff" font-family="-apple-system, Inter, sans-serif" font-weight="700" font-size="14" text-anchor="middle">EXECUTIVE REACT 19 FRONTEND DASHBOARD (:5173)</text>
+  <text x="500" y="128" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="middle">Vite • Industrial Telemetry • RAG Dialogue • Triage Pane • SOW Viewer</text>
+
+  <!-- Connection lines from Frontend to 3 Tasks -->
+  <path d="M 330 140 L 330 170 L 160 170 L 160 190" stroke="#00d2ff" stroke-width="1.5" stroke-dasharray="4,4" fill="none" opacity="0.7" />
+  <path d="M 500 140 L 500 190" stroke="#00d2ff" stroke-width="1.5" stroke-dasharray="4,4" fill="none" opacity="0.7" />
+  <path d="M 670 140 L 670 170 L 840 170 L 840 190" stroke="#00d2ff" stroke-width="1.5" stroke-dasharray="4,4" fill="none" opacity="0.7" />
+
+  <!-- Task 1 Card -->
+  <g transform="translate(40, 190)">
+    <rect width="280" height="200" rx="10" fill="url(#cardGrad)" stroke="#1e263d" stroke-width="1.5" />
+    <rect x="0" y="0" width="280" height="3" rx="1" fill="#00d2ff" />
+    <text x="16" y="28" fill="#00d2ff" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">TASK 1 // PORT 8001</text>
+    <text x="16" y="48" fill="#ffffff" font-family="-apple-system, Inter, sans-serif" font-weight="700" font-size="14">Knowledge Brain</text>
+    <text x="16" y="66" fill="#94a3b8" font-family="-apple-system, Inter, sans-serif" font-size="10.5">Python 3.13 • FastAPI Async</text>
+    
+    <rect x="14" y="78" width="252" height="106" rx="6" fill="#090d16" stroke="#1b2234" stroke-width="1" />
+    <text x="24" y="96" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="9.5">• Polite Web Crawler (BD Solution Center)</text>
+    <text x="24" y="112" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="9.5">• Multimodal Vision Screenshot Parser</text>
+    <text x="24" y="128" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="9.5">• Daily sitemap.xml Differential Sync</text>
+    <text x="24" y="144" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="9.5">• Hybrid BM25 + Semantic Title Boost</text>
+    <text x="24" y="160" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="9.5">• Human Escalation + Memory Flowback</text>
+  </g>
+
+  <!-- Cross-link line from Task 1 to Task 2 & Task 3 -->
+  <path d="M 320 290 L 360 290" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)" fill="none" />
+  <text x="340" y="282" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="8.5" text-anchor="middle">HTTP RAG</text>
+
+  <!-- Task 2 Card -->
+  <g transform="translate(360, 190)">
+    <rect width="280" height="200" rx="10" fill="url(#cardGrad)" stroke="#1e263d" stroke-width="1.5" />
+    <rect x="0" y="0" width="280" height="3" rx="1" fill="#818cf8" />
+    <text x="16" y="28" fill="#818cf8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">TASK 2 // PORT 8002</text>
+    <text x="16" y="48" fill="#ffffff" font-family="-apple-system, Inter, sans-serif" font-weight="700" font-size="14">The Inbox Agent</text>
+    <text x="16" y="66" fill="#94a3b8" font-family="-apple-system, Inter, sans-serif" font-size="10.5">Strict TypeScript • Node.js (+10% Bonus)</text>
+    
+    <rect x="14" y="78" width="252" height="106" rx="6" fill="#090d16" stroke="#1b2234" stroke-width="1" />
+    <text x="24" y="96" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="9.5">• 50 Realistic Email Inbound Dataset</text>
+    <text x="24" y="112" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="9.5">• 3x Weighted Subject Classifier</text>
+    <text x="24" y="128" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="9.5">• Grounded Company-Voice Drafting</text>
+    <text x="24" y="144" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="9.5">• Diff Learning Engine (Undoable Rules)</text>
+    <text x="24" y="160" fill="#818cf8" font-family="'JetBrains Mono', monospace" font-size="9.5">• 20-Approval Autonomy Engine &amp; Reset</text>
+  </g>
+
+  <!-- Cross-link line from Task 2 to Task 3 -->
+  <path d="M 640 290 L 680 290" stroke="#f59e0b" stroke-width="2" fill="none" />
+  <text x="660" y="282" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="8.5" text-anchor="middle">MATCH</text>
+
+  <!-- Task 3 Card -->
+  <g transform="translate(680, 190)">
+    <rect width="280" height="200" rx="10" fill="url(#cardGrad)" stroke="#1e263d" stroke-width="1.5" />
+    <rect x="0" y="0" width="280" height="3" rx="1" fill="#f59e0b" />
+    <text x="16" y="28" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">TASK 3 // PORT 8003</text>
+    <text x="16" y="48" fill="#ffffff" font-family="-apple-system, Inter, sans-serif" font-weight="700" font-size="14">Meeting to Scope of Work</text>
+    <text x="16" y="66" fill="#94a3b8" font-family="-apple-system, Inter, sans-serif" font-size="10.5">Python 3.13 • 5-Agent Pipeline</text>
+    
+    <rect x="14" y="78" width="252" height="106" rx="6" fill="#090d16" stroke="#1b2234" stroke-width="1" />
+    <text x="24" y="96" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="9.5">• 5-Agent Collaborative Pipeline</text>
+    <text x="24" y="112" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="9.5">• $5,700 Native BD Setting Savings</text>
+    <text x="24" y="128" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="9.5">• Meeting 2 Scope Creep Detector</text>
+    <text x="24" y="144" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="9.5">• Itemized Proposal Generator</text>
+    <text x="24" y="160" fill="#00d2ff" font-family="'JetBrains Mono', monospace" font-size="9.5">• Human Sign-off Protocol Enforcement</text>
+  </g>
+</svg>
