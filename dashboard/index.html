@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Tech Consultant — Executive Platform</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">⚡</div>
+        <div class="brand-text">
+          <h2>AI Tech Consultant</h2>
+          <span class="badge">BusinessLabs · Enterprise</span>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <button class="nav-item active" data-tab="tab-task1">
+          <span class="icon">🧠</span>
+          <div class="nav-label">
+            <strong>1. Knowledge Brain</strong>
+            <small>Polite RAG & Syncer</small>
+          </div>
+        </button>
+
+        <button class="nav-item" data-tab="tab-task2">
+          <span class="icon">📬</span>
+          <div class="nav-label">
+            <strong>2. Inbox Agent</strong>
+            <small>50 Emails & Autonomy</small>
+          </div>
+        </button>
+
+        <button class="nav-item" data-tab="tab-task3">
+          <span class="icon">📋</span>
+          <div class="nav-label">
+            <strong>3. Meeting to SOW</strong>
+            <small>Multi-Agent Pipeline</small>
+          </div>
+        </button>
+      </nav>
+
+      <div class="service-status-card">
+        <h3>System Telemetry</h3>
+        <div class="status-indicator">
+          <span class="dot" id="t1-dot"></span>
+          <span>Task 1 (Port 8001): <strong id="t1-status">Checking...</strong></span>
+        </div>
+        <div class="status-indicator">
+          <span class="dot" id="t2-dot"></span>
+          <span>Task 2 (Port 8002): <strong id="t2-status">Checking...</strong></span>
+        </div>
+        <div class="status-indicator">
+          <span class="dot" id="t3-dot"></span>
+          <span>Task 3 (Port 8003): <strong id="t3-status">Checking...</strong></span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- TASK 1: THE KNOWLEDGE BRAIN -->
+      <section id="tab-task1" class="tab-pane active">
+        <header class="tab-header">
+          <div>
+            <h1>Task 1: The Knowledge Brain</h1>
+            <p>Single source of truth for Brilliant Directories solution center with polite sitemap syncer & visual parsing.</p>
+          </div>
+          <div class="header-actions">
+            <button class="btn btn-secondary" id="btn-sync-sitemap">🔄 Sync Sitemap Daily</button>
+          </div>
+        </header>
+
+        <!-- Stats Bar -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-label">Indexed Articles</span>
+            <span class="stat-value" id="t1-stat-articles">--</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Screenshots Indexed</span>
+            <span class="stat-value" id="t1-stat-images">--</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Pending Escalations</span>
+            <span class="stat-value text-warning" id="t1-stat-escalations">--</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Sync Status</span>
+            <span class="stat-value text-success" id="t1-stat-sync">Ready</span>
+          </div>
+        </div>
+
+        <div class="two-column">
+          <!-- Chatbot UI -->
+          <div class="card chat-card">
+            <div class="card-header">
+              <h2>Ask the Technical Consultant Chatbot</h2>
+              <span class="badge">Hybrid RAG + Vision</span>
+            </div>
+            <div class="chat-messages" id="t1-chat-messages">
+              <div class="message assistant">
+                <p>Hello! I am your AI Tech Consultant. I know every setting, form, and feature in the Brilliant Directories Solution Center. Ask me how to configure anything or solve client requests!</p>
+              </div>
+            </div>
+            <form class="chat-input-bar" id="t1-chat-form">
+              <input type="text" id="t1-input-query" placeholder="e.g. How do I configure Stripe payment gateway?" required>
+              <button type="submit" class="btn btn-primary">Send Question</button>
+            </form>
+          </div>
+
+          <!-- Human Expert Escalation Queue -->
+          <div class="card escalation-card">
+            <div class="card-header">
+              <h2>Human Expert Escalation Queue</h2>
+              <span class="badge badge-warning">Memory Flowback</span>
+            </div>
+            <p class="section-desc">When confidence is low, queries queue here. Resolving an escalation feeds the verified answer directly back into vector memory!</p>
+            <div class="escalation-list" id="t1-escalation-list">
+              <div class="empty-state">No pending escalations.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TASK 2: THE INBOX AGENT -->
+      <section id="tab-task2" class="tab-pane">
+        <header class="tab-header">
+          <div>
+            <h1>Task 2: The Inbox Agent</h1>
+            <p>Reads incoming customer emails, drafts factual replies via Task 1 API, and learns from human edits toward autonomy.</p>
+          </div>
+        </header>
+
+        <!-- Autonomy Dashboard -->
+        <div class="card autonomy-card">
+          <div class="card-header">
+            <h2>Autonomy Tracking Engine (20 Unchanged Drafts Rule)</h2>
+            <button class="btn btn-danger btn-sm" id="btn-trigger-regression">⚠️ Simulate Safety Regression Rollback</button>
+          </div>
+          <div class="autonomy-meter-grid" id="autonomy-grid">
+            <!-- Dynamically populated per category -->
+          </div>
+        </div>
+
+        <div class="inbox-layout">
+          <!-- Email List Sidebar -->
+          <div class="card email-list-card">
+            <div class="card-header">
+              <h3>Customer Inbox (50 Realistic Emails)</h3>
+              <select id="email-category-filter">
+                <option value="all">All Categories (50)</option>
+                <option value="how_to">How-To (10)</option>
+                <option value="new_project">New Project (8)</option>
+                <option value="refund">Refund (8)</option>
+                <option value="complaint">Complaint (8)</option>
+                <option value="quote">Quote (8)</option>
+                <option value="follow_up">Follow-Up (8)</option>
+              </select>
+            </div>
+            <div class="email-items" id="email-items-container">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Email Detail & Review Pane -->
+          <div class="card email-review-card" id="email-review-pane">
+            <div class="empty-state">Select an email from the inbox list to review the AI draft.</div>
+          </div>
+        </div>
+
+        <!-- Learned Rules Store -->
+        <div class="card learned-rules-card">
+          <div class="card-header">
+            <h2>Self-Improving Memory Store (Learned Preferences)</h2>
+            <span class="badge">Measure & Undo</span>
+          </div>
+          <div class="rules-table-container">
+            <table class="data-table" id="learned-rules-table">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Learned Rule / Policy</th>
+                  <th>Source Email</th>
+                  <th>Times Applied</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="learned-rules-body">
+                <tr><td colspan="6" class="text-center">No custom rules learned yet. Edit a draft to teach the agent!</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TASK 3: MEETING TO SCOPE OF WORK -->
+      <section id="tab-task3" class="tab-pane">
+        <header class="tab-header">
+          <div>
+            <h1>Task 3: Meeting to Scope of Work</h1>
+            <p>5-Agent pipeline turning messy transcripts into SOWs, built-in vs custom setting breakdowns, and client proposals.</p>
+          </div>
+        </header>
+
+        <div class="card transcript-select-card">
+          <div class="card-header">
+            <h2>Select Meeting Transcript for Processing</h2>
+          </div>
+          <div class="transcript-controls">
+            <select id="t3-transcript-select">
+              <option value="meeting_1">Meeting 1: Initial Discovery (Metro Doctors Directory)</option>
+              <option value="meeting_2">Meeting 2: Scope Revision & Creep (Metro Doctors Directory)</option>
+              <option value="meeting_3">Meeting 3: Discovery Call (GreenEats Restaurant Portal)</option>
+            </select>
+            <button class="btn btn-primary" id="btn-run-pipeline">🚀 Run Multi-Agent Team</button>
+            <button class="btn btn-warning" id="btn-run-diff">🔍 Run Meeting 2 Scope Diff & Creep Detector</button>
+          </div>
+          <textarea id="t3-transcript-preview" class="code-preview" rows="6" readonly></textarea>
+        </div>
+
+        <!-- Pipeline Results Viewer -->
+        <div class="card proposal-viewer-card" id="t3-results-card" style="display: none;">
+          <div class="card-header">
+            <div class="title-group">
+              <h2 id="t3-sow-title">Scope of Work & Proposal</h2>
+              <span class="badge" id="t3-sow-badge">Draft</span>
+            </div>
+            <button class="btn btn-success" id="btn-approve-sow">✅ Human Consultant Sign-Off & Approve</button>
+          </div>
+
+          <!-- Highlight Savings Banner -->
+          <div class="savings-banner" id="t3-savings-banner">
+            <div class="savings-icon">💰</div>
+            <div class="savings-text">
+              <h3>Client Savings Showcase: <span id="t3-savings-amount">$0.00</span></h3>
+              <p>Achieved by mapping client requests to native Brilliant Directories built-in settings instead of custom coding!</p>
+            </div>
+          </div>
+
+          <!-- Proposal Markdown Render -->
+          <div class="proposal-content" id="t3-proposal-body"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

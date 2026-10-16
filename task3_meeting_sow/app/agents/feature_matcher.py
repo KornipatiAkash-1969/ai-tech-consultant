@@ -82,7 +82,6 @@ class FeatureMatcherAgent:
                 estimated_hours = 2.0
 
             elif "polygon" in lower_title or "lasso" in lower_title:
-                # Custom code!
                 solution_type = "custom_code"
                 bd_ref = "Custom Google Maps JavaScript API DrawingManager Widget"
                 bd_url = ""
@@ -90,12 +89,67 @@ class FeatureMatcherAgent:
                 estimated_hours = 18.0
 
             elif "twilio" in lower_title or "sms" in lower_title:
-                # Custom code!
                 solution_type = "custom_code"
                 bd_ref = "Custom Webhook Bridge & Twilio Programmable SMS API"
                 bd_url = ""
                 cost_savings = 0.0
                 estimated_hours = 14.0
+
+            elif "webrtc" in lower_title or "telemedicine" in lower_title or "video call" in lower_title:
+                solution_type = "custom_code"
+                bd_ref = "Excluded Scope (Phase 2 Native Telemedicine Engine)"
+                bd_url = ""
+                cost_savings = 0.0
+                estimated_hours = 0.0
+
+            elif "redirect" in lower_title:
+                solution_type = "built_in_setting"
+                bd_ref = "Developer Tools > 301 Redirect Manager"
+                bd_url = "https://support.brilliantdirectories.com/support/solutions/articles/5000558389"
+                cost_savings = 1200.0
+                estimated_hours = 1.0
+
+            elif "salesforce" in lower_title or "crm" in lower_title or "slack" in lower_title:
+                solution_type = "custom_code"
+                bd_ref = "Custom Two-Way Webhook Integration Pipeline"
+                bd_url = ""
+                cost_savings = 0.0
+                estimated_hours = 16.0
+
+            elif "license" in lower_title or "upload" in lower_title:
+                solution_type = "built_in_setting"
+                bd_ref = "Forms > Form Manager > Custom File Upload Field"
+                bd_url = "https://support.brilliantdirectories.com/support/solutions/articles/5000558401"
+                cost_savings = 1400.0
+                estimated_hours = 1.5
+
+            elif "multi-language" in lower_title or "language" in lower_title:
+                solution_type = "hybrid_tweak"
+                bd_ref = "Settings > Text Labels + Google Translate Widget"
+                bd_url = "https://support.brilliantdirectories.com/support/solutions/articles/5000558389"
+                cost_savings = 1000.0
+                estimated_hours = 4.0
+
+            elif "menu" in lower_title or "pdf" in lower_title:
+                solution_type = "built_in_setting"
+                bd_ref = "Finance > Digital Products / Downloadable PDF Attachments"
+                bd_url = "https://support.brilliantdirectories.com/support/solutions/articles/5000558401"
+                cost_savings = 1200.0
+                estimated_hours = 1.5
+
+            elif "geocoding" in lower_title or "google maps" in lower_title:
+                solution_type = "built_in_setting"
+                bd_ref = "Settings > General Settings > Integrations Tab"
+                bd_url = "https://support.brilliantdirectories.com/support/solutions/articles/5000558389"
+                cost_savings = 800.0
+                estimated_hours = 1.0
+
+            elif "css" in lower_title or "figma" in lower_title or "styling" in lower_title:
+                solution_type = "hybrid_tweak"
+                bd_ref = "Design & Content > Additional Settings > Custom CSS / HEAD"
+                bd_url = "https://support.brilliantdirectories.com/support/solutions/articles/5000558389"
+                cost_savings = 1500.0
+                estimated_hours = 4.5
 
             evaluated.append(ClientRequirement(
                 id=req["id"],

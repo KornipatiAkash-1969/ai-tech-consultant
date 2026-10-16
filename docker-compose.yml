@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  task1-knowledge-brain:
+    build:
+      context: .
+      dockerfile_inline: |
+        FROM python:3.11-slim
+        WORKDIR /app
+        COPY task1_knowledge_brain/requirements.txt requirements.txt
+        RUN pip install --no-cache-dir -r requirements.txt
+        COPY . .
+        EXPOSE 8001
+        CMD ["uvicorn", "task1_knowledge_brain.app.main:app", "--host", "0.0.0.0", "--port", "8001"]
+    ports:
+      - "8001:8001"
+    environment:
+      - PORT=8001
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+
+  task2-inbox-agent:
+    build:
+      context: .
+      dockerfile_inline: |
+        FROM node:20-slim
+        WORKDIR /app
+        COPY task2_inbox_agent/package*.json ./
+        RUN npm install
+        COPY task2_inbox_agent/ ./
+        RUN npm run build
+        EXPOSE 8002
+        CMD ["node", "dist/index.js"]
+    ports:
+      - "8002:8002"
+    environment:
+      - PORT=8002
+      - TASK1_API_URL=http://task1-knowledge-brain:8001
+    depends_on:
+      - task1-knowledge-brain
+
+  task3-meeting-sow:
+    build:
+      context: .
+      dockerfile_inline: |
+        FROM python:3.11-slim
+        WORKDIR /app
+        COPY task3_meeting_sow/requirements.txt requirements.txt
+        RUN pip install --no-cache-dir -r requirements.txt
+        COPY . .
+        EXPOSE 8003
+        CMD ["uvicorn", "task3_meeting_sow.app.main:app", "--host", "0.0.0.0", "--port", "8003"]
+    ports:
+      - "8003:8003"
+    environment:
+      - PORT=8003
+      - TASK1_API_URL=http://task1-knowledge-brain:8001
+    depends_on:
+      - task1-knowledge-brain

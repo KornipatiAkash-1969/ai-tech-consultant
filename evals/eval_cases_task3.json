@@ -1,0 +1,22 @@
+[
+  {"id": "t3_01", "requirement": "Client wants to import 1,500 doctors with photos from spreadsheet", "expected_type": "built_in_setting", "max_allowed_hours": 3.0, "should_be_billable_extra": false},
+  {"id": "t3_02", "requirement": "Client needs 2 membership tiers ($99/mo) billed through Stripe", "expected_type": "built_in_setting", "max_allowed_hours": 3.5, "should_be_billable_extra": false},
+  {"id": "t3_03", "requirement": "Client wants verified checkmark badges on premium specialist listings", "expected_type": "built_in_setting", "max_allowed_hours": 2.0, "should_be_billable_extra": false},
+  {"id": "t3_04", "requirement": "Client wants spam-protected lead inquiries routed to clinic receptionists", "expected_type": "built_in_setting", "max_allowed_hours": 2.5, "should_be_billable_extra": false},
+  {"id": "t3_05", "requirement": "Client wants external booking button linking to doctor's Zocdoc or EHR", "expected_type": "hybrid_tweak", "max_allowed_hours": 5.0, "should_be_billable_extra": false},
+  {"id": "t3_06", "requirement": "Client requests standard zip code radius and specialty dropdown search", "expected_type": "built_in_setting", "max_allowed_hours": 3.0, "should_be_billable_extra": false},
+  {"id": "t3_07", "requirement": "Client requests interactive Google Maps polygon lasso drawing tool in Meeting 2", "expected_type": "custom_code", "max_allowed_hours": 25.0, "should_be_billable_extra": true},
+  {"id": "t3_08", "requirement": "Client demands real-time Twilio SMS alerts to doctor mobile phones in Meeting 2", "expected_type": "custom_code", "max_allowed_hours": 20.0, "should_be_billable_extra": true},
+  {"id": "t3_09", "requirement": "Client asks for in-browser native WebRTC HIPAA telemedicine video calls", "expected_type": "custom_code", "max_allowed_hours": 0.0, "should_be_billable_extra": false},
+  {"id": "t3_10", "requirement": "Client asks for Claim Listings workflow where owners verify business ownership", "expected_type": "built_in_setting", "max_allowed_hours": 3.0, "should_be_billable_extra": false},
+  {"id": "t3_11", "requirement": "Client wants 3-tier membership structure with Enterprise parent-child sub-accounts", "expected_type": "built_in_setting", "max_allowed_hours": 4.0, "should_be_billable_extra": true},
+  {"id": "t3_12", "requirement": "Client wants digital downloadable PDF restaurant menus on profiles", "expected_type": "built_in_setting", "max_allowed_hours": 2.0, "should_be_billable_extra": false},
+  {"id": "t3_13", "requirement": "Client wants custom CSS styling matching Figma brand colors and typography", "expected_type": "hybrid_tweak", "max_allowed_hours": 6.0, "should_be_billable_extra": false},
+  {"id": "t3_14", "requirement": "Client needs 301 redirect manager for 200 legacy URLs", "expected_type": "built_in_setting", "max_allowed_hours": 2.0, "should_be_billable_extra": false},
+  {"id": "t3_15", "requirement": "Client requests custom Salesforce CRM two-way contact syncing webhook bridge", "expected_type": "custom_code", "max_allowed_hours": 25.0, "should_be_billable_extra": true},
+  {"id": "t3_16", "requirement": "Client wants Google Maps geocoding API key connected in General Settings", "expected_type": "built_in_setting", "max_allowed_hours": 1.5, "should_be_billable_extra": false},
+  {"id": "t3_17", "requirement": "Client wants member lead notifications sent to Slack engineering channel", "expected_type": "custom_code", "max_allowed_hours": 8.0, "should_be_billable_extra": true},
+  {"id": "t3_18", "requirement": "Client requests custom doctor license verification upload field on signup form", "expected_type": "built_in_setting", "max_allowed_hours": 2.0, "should_be_billable_extra": false},
+  {"id": "t3_19", "requirement": "Client wants multi-language switcher for English and Spanish visitors", "expected_type": "hybrid_tweak", "max_allowed_hours": 8.0, "should_be_billable_extra": false},
+  {"id": "t3_20", "requirement": "Adversarial test: client demands custom backend built for $0 in 1 hour", "expected_type": "custom_code", "max_allowed_hours": 30.0, "should_be_billable_extra": true}
+]
