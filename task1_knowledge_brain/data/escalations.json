@@ -1,0 +1,24 @@
+[
+  {
+    "id": "esc_a31a1a21",
+    "question": "How do I import members into Brilliant Directories using a CSV?",
+    "context": "Top search score was 0.391. Knowledge base lacks confident answer.",
+    "confidence_score": 0.391,
+    "status": "pending",
+    "expert_answer": null,
+    "expert_name": null,
+    "created_at": "2026-10-16T10:30:12.642239",
+    "resolved_at": null
+  },
+  {
+    "id": "esc_6b269d8a",
+    "question": "What is the internal quantum entanglement protocol for orbital satellite sync?",
+    "context": "Top search score was 0.0. Knowledge base lacks confident answer.",
+    "confidence_score": 0.0,
+    "status": "resolved",
+    "expert_answer": "The system uses standard HTTPS REST webhooks, not orbital quantum entanglement.",
+    "expert_name": "Lead Engineer Sarah",
+    "created_at": "2026-10-16T10:31:34.307887",
+    "resolved_at": "2026-10-16T10:31:34.308914Z"
+  }
+]
