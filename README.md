@@ -55,7 +55,7 @@ docker-compose up --build
 
 | Component | Language / Framework | Local URL | Documentation |
 | :--- | :--- | :--- | :--- |
-| **Unified Dashboard** | HTML5 / Vanilla JS / CSS3 | Open `dashboard/index.html` in browser | Interactive Screen |
+| **Executive Frontend UI** | **React.js 19 / Vite** | `http://localhost:5173` | Interactive Executive Dashboard |
 | **Task 1 Knowledge Brain** | Python / FastAPI (Async) | `http://localhost:8001` | `http://localhost:8001/docs` |
 | **Task 2 Inbox Agent** | Strict TypeScript / Node.js | `http://localhost:8002` | Endpoints listed on root `/` |
 | **Task 3 Meeting to SOW** | Python / FastAPI (Async) | `http://localhost:8003` | `http://localhost:8003/docs` |

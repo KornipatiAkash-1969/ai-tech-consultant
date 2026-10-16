@@ -27,22 +27,27 @@ echo "[3/4] Starting Task 3 (Meeting to SOW) on http://localhost:8003..."
 python3 -m uvicorn task3_meeting_sow.app.main:app --port 8003 --host 0.0.0.0 &
 P3=$!
 
-sleep 3
-echo "[4/4] Opening Interactive Dashboard..."
+# Start React.js Frontend
+echo "[4/4] Starting React.js Frontend on http://localhost:5173..."
+(cd frontend && npm run dev -- --port 5173 --host) &
+P4=$!
+
+sleep 4
+echo "Opening React.js Frontend..."
 if which xdg-open > /dev/null; then
-  xdg-open dashboard/index.html &
+  xdg-open http://localhost:5173 &
 elif which open > /dev/null; then
-  open dashboard/index.html &
+  open http://localhost:5173 &
 fi
 
 echo "================================================================="
-echo "  ✅ ALL 3 TASKS & DASHBOARD SUCCESSFULLY RUNNING!"
-echo "  - Dashboard UI:      file://$DIR/dashboard/index.html"
+echo "  ✅ ALL SERVICES & REACT FRONTEND SUCCESSFULLY RUNNING!"
+echo "  - React.js UI:       http://localhost:5173"
 echo "  - Task 1 API & Docs: http://localhost:8001/docs"
 echo "  - Task 2 API:        http://localhost:8002"
 echo "  - Task 3 API & Docs: http://localhost:8003/docs"
 echo "================================================================="
 echo "Press [Ctrl+C] to terminate all background services..."
 
-trap "kill $P1 $P2 $P3; echo 'All services stopped.'; exit" SIGINT SIGTERM
+trap "kill $P1 $P2 $P3 $P4; echo 'All services stopped.'; exit" SIGINT SIGTERM
 wait

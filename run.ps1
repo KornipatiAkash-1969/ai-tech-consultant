@@ -21,16 +21,19 @@ $p2 = Start-Process node -ArgumentList "task2_inbox_agent/dist/index.js" -Workin
 Write-Host "[3/4] Starting Task 3 (Meeting to SOW) on http://localhost:8003..." -ForegroundColor Green
 $p3 = Start-Process python -ArgumentList "-m uvicorn task3_meeting_sow.app.main:app --port 8003 --host 0.0.0.0" -WorkingDirectory $ROOT -PassThru -NoNewWindow
 
-# 4. Open Interactive Dashboard in Browser
-Start-Sleep -Seconds 3
-Write-Host "[4/4] Opening Interactive Executive Dashboard..." -ForegroundColor Green
-$dashPath = Join-Path $ROOT "dashboard\index.html"
-Start-Process $dashPath
+# 4. Start React.js Frontend (Vite - Port 5173)
+Write-Host "[4/4] Starting React.js Frontend on http://localhost:5173..." -ForegroundColor Green
+$p4 = Start-Process npm -ArgumentList "run dev -- --port 5173 --host" -WorkingDirectory (Join-Path $ROOT "frontend") -PassThru -NoNewWindow
+
+# 5. Open React Frontend in Browser
+Start-Sleep -Seconds 4
+Write-Host "Opening React.js Frontend..." -ForegroundColor Green
+Start-Process "http://localhost:5173"
 
 Write-Host ""
 Write-Host "=================================================================" -ForegroundColor Cyan
-Write-Host "  ✅ ALL 3 TASKS & DASHBOARD SUCCESSFULLY RUNNING!" -ForegroundColor Green
-Write-Host "  - Dashboard UI:      file://$dashPath" -ForegroundColor White
+Write-Host "  ✅ ALL SERVICES & REACT FRONTEND SUCCESSFULLY RUNNING!" -ForegroundColor Green
+Write-Host "  - React.js UI:       http://localhost:5173" -ForegroundColor White
 Write-Host "  - Task 1 API & Docs: http://localhost:8001/docs" -ForegroundColor White
 Write-Host "  - Task 2 API:        http://localhost:8002" -ForegroundColor White
 Write-Host "  - Task 3 API & Docs: http://localhost:8003/docs" -ForegroundColor White
@@ -44,5 +47,6 @@ try {
     Stop-Process -Id $p1.Id -ErrorAction SilentlyContinue
     Stop-Process -Id $p2.Id -ErrorAction SilentlyContinue
     Stop-Process -Id $p3.Id -ErrorAction SilentlyContinue
+    Stop-Process -Id $p4.Id -ErrorAction SilentlyContinue
     Write-Host "All services stopped cleanly." -ForegroundColor Green
 }
