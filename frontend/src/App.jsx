@@ -56,11 +56,11 @@ export default function App() {
       <aside className="sidebar">
         <div className="brand-section">
           <div className="brand-logo">
-            <Zap size={22} />
+            <Zap size={20} />
           </div>
           <div className="brand-info">
             <h2>AI Tech Consultant</h2>
-            <span>BusinessLabs Applied AI</span>
+            <div className="brand-tag">@BusinessLabs // Anthropic</div>
           </div>
         </div>
 
@@ -69,7 +69,9 @@ export default function App() {
             className={`nav-btn ${activeTab === 'task1' ? 'active' : ''}`}
             onClick={() => setActiveTab('task1')}
           >
-            <Brain size={18} />
+            <div className="nav-btn-icon">
+              <Brain size={16} />
+            </div>
             <div className="nav-btn-text">
               <strong>1. Knowledge Brain</strong>
               <small>Polite RAG &amp; Vision</small>
@@ -80,10 +82,12 @@ export default function App() {
             className={`nav-btn ${activeTab === 'task2' ? 'active' : ''}`}
             onClick={() => setActiveTab('task2')}
           >
-            <Mail size={18} />
+            <div className="nav-btn-icon">
+              <Mail size={16} />
+            </div>
             <div className="nav-btn-text">
               <strong>2. Inbox Agent</strong>
-              <small>50 Emails &amp; Autonomy</small>
+              <small>Strict TS &amp; Autonomy</small>
             </div>
           </button>
 
@@ -91,10 +95,12 @@ export default function App() {
             className={`nav-btn ${activeTab === 'task3' ? 'active' : ''}`}
             onClick={() => setActiveTab('task3')}
           >
-            <FileText size={18} />
+            <div className="nav-btn-icon">
+              <FileText size={16} />
+            </div>
             <div className="nav-btn-text">
               <strong>3. Meeting to SOW</strong>
-              <small>Multi-Agent Pipeline</small>
+              <small>5-Agent Scope Pipeline</small>
             </div>
           </button>
 
@@ -102,10 +108,12 @@ export default function App() {
             className={`nav-btn ${activeTab === 'evals' ? 'active' : ''}`}
             onClick={() => setActiveTab('evals')}
           >
-            <Award size={18} />
+            <div className="nav-btn-icon">
+              <Award size={16} />
+            </div>
             <div className="nav-btn-text">
               <strong>Evals Benchmark</strong>
-              <small>Sonnet vs Haiku (60 Cases)</small>
+              <small>60 Cases: Sonnet vs Haiku</small>
             </div>
           </button>
         </nav>
@@ -113,31 +121,31 @@ export default function App() {
         {/* Live Service Telemetry */}
         <div className="telemetry-card">
           <div className="telemetry-header">
-            <span>Service Telemetry</span>
-            <Activity size={12} color="#38bdf8" />
+            <span>Daemon Telemetry</span>
+            <Activity size={12} color="#00d2ff" />
           </div>
 
           <div className="telemetry-row">
-            <span>Task 1 (Port 8001):</span>
+            <span className="telemetry-label">Task 1 :8001</span>
             <span className={`status-badge ${telemetry.task1 ? 'online' : 'offline'}`}>
-              <span className="status-dot"></span>
-              {telemetry.task1 ? 'Online' : 'Offline'}
+              <span className="radar-dot"></span>
+              {telemetry.task1 ? 'Active' : 'Offline'}
             </span>
           </div>
 
           <div className="telemetry-row">
-            <span>Task 2 (Port 8002):</span>
+            <span className="telemetry-label">Task 2 :8002</span>
             <span className={`status-badge ${telemetry.task2 ? 'online' : 'offline'}`}>
-              <span className="status-dot"></span>
-              {telemetry.task2 ? 'Online' : 'Offline'}
+              <span className="radar-dot"></span>
+              {telemetry.task2 ? 'Active' : 'Offline'}
             </span>
           </div>
 
           <div className="telemetry-row">
-            <span>Task 3 (Port 8003):</span>
+            <span className="telemetry-label">Task 3 :8003</span>
             <span className={`status-badge ${telemetry.task3 ? 'online' : 'offline'}`}>
-              <span className="status-dot"></span>
-              {telemetry.task3 ? 'Online' : 'Offline'}
+              <span className="radar-dot"></span>
+              {telemetry.task3 ? 'Active' : 'Offline'}
             </span>
           </div>
         </div>

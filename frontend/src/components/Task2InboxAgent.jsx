@@ -145,36 +145,30 @@ export default function Task2InboxAgent() {
       </div>
 
       {/* Autonomy Meter */}
-      <div className="glass-card" style={{ marginBottom: '20px' }}>
-        <div className="glass-card-header">
-          <h2>Autonomy Progress Meter (20 Consecutive Approvals Rule)</h2>
-          <span className="badge badge-blue">Category Scoped</span>
+      <div className="ind-card" style={{ marginBottom: '22px' }}>
+        <div className="ind-card-header">
+          <h2>Autonomy Progress Telemetry (20 Consecutive Approvals Rule)</h2>
+          <span className="badge badge-cyan font-mono">STRICT TYPESCRIPT ENGINE</span>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '12px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '10px' }}>
           {Object.entries(autonomyStates).map(([cat, s]) => {
             const pct = Math.min(100, Math.round((s.consecutive_approvals / s.threshold) * 100));
             return (
               <div 
                 key={cat} 
-                style={{
-                  backgroundColor: '#0b1120',
-                  border: `1px solid ${s.is_autonomous ? '#10b981' : '#24324f'}`,
-                  borderRadius: '10px',
-                  padding: '12px',
-                  textAlign: 'center'
-                }}
+                className={`autonomy-meter-card ${s.is_autonomous ? 'autonomous' : ''}`}
               >
-                <div style={{ fontSize: '12px', fontWeight: 600, textTransform: 'capitalize', color: '#fff', marginBottom: '4px' }}>
+                <div style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--text-pure)', marginBottom: '4px' }}>
                   {cat.replace('_', ' ')}
                 </div>
-                <div style={{ fontSize: '18px', fontWeight: 700, color: s.is_autonomous ? '#10b981' : '#38bdf8' }}>
+                <div style={{ fontSize: '18px', fontFamily: 'var(--font-mono)', fontWeight: 700, color: s.is_autonomous ? 'var(--emerald-accent)' : 'var(--cyan-primary)' }}>
                   {s.consecutive_approvals} / 20
                 </div>
-                <span className={`badge ${s.is_autonomous ? 'badge-green' : 'badge-blue'}`} style={{ marginTop: '4px' }}>
-                  {s.is_autonomous ? '⚡ Autonomous' : 'Human Review'}
+                <span className={`badge ${s.is_autonomous ? 'badge-green' : 'badge-blue'}`} style={{ marginTop: '4px', fontSize: '9.5px' }}>
+                  {s.is_autonomous ? '⚡ AUTONOMOUS' : 'HUMAN REVIEW'}
                 </span>
-                <div style={{ height: '5px', backgroundColor: '#1e293b', borderRadius: '999px', overflow: 'hidden', marginTop: '8px' }}>
-                  <div style={{ height: '100%', width: `${pct}%`, backgroundColor: s.is_autonomous ? '#10b981' : '#38bdf8', transition: 'width 0.3s ease' }}></div>
+                <div className="autonomy-bar-track">
+                  <div className="autonomy-bar-fill" style={{ width: `${pct}%`, backgroundColor: s.is_autonomous ? 'var(--emerald-accent)' : 'var(--cyan-primary)' }}></div>
                 </div>
               </div>
             );
@@ -183,53 +177,48 @@ export default function Task2InboxAgent() {
       </div>
 
       {/* Inbox Workspace */}
-      <div style={{ display: 'grid', gridTemplateColumns: '360px 1fr', gap: '20px', marginBottom: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '370px 1fr', gap: '20px', marginBottom: '22px' }}>
         {/* Email List */}
-        <div className="glass-card" style={{ display: 'flex', flexDirection: 'column', height: '620px', padding: '16px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
-            <strong style={{ fontSize: '13.5px', color: '#fff' }}>Customer Inbox ({emails.length})</strong>
+        <div className="ind-card" style={{ display: 'flex', flexDirection: 'column', height: '620px', padding: '16px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px', paddingBottom: '10px', borderBottom: '1px solid var(--border-subtle)' }}>
+            <span style={{ fontSize: '12px', fontFamily: 'var(--font-mono)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--text-muted)' }}>
+              Inbox ({emails.length})
+            </span>
             <select 
               value={categoryFilter} 
               onChange={(e) => setCategoryFilter(e.target.value)}
-              style={{ padding: '6px 10px', fontSize: '11.5px' }}
+              style={{ padding: '4px 8px', fontSize: '11px', fontFamily: 'var(--font-mono)' }}
             >
-              <option value="all">All (50)</option>
-              <option value="how_to">How-To (10)</option>
-              <option value="new_project">New Project (8)</option>
-              <option value="refund">Refund (8)</option>
-              <option value="complaint">Complaint (8)</option>
-              <option value="quote">Quote (8)</option>
-              <option value="follow_up">Follow-Up (8)</option>
+              <option value="all">ALL CATEGORIES (50)</option>
+              <option value="how_to">HOW-TO (10)</option>
+              <option value="new_project">NEW PROJECT (8)</option>
+              <option value="refund">REFUND (8)</option>
+              <option value="complaint">COMPLAINT (8)</option>
+              <option value="quote">QUOTE (8)</option>
+              <option value="follow_up">FOLLOW-UP (8)</option>
             </select>
           </div>
 
-          <div style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          <div style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '7px', paddingRight: '4px' }}>
             {filteredEmails.map((email) => (
               <div 
                 key={email.id}
                 onClick={() => selectEmail(email)}
-                style={{
-                  padding: '12px',
-                  backgroundColor: selectedEmail?.id === email.id ? 'rgba(56, 189, 248, 0.12)' : '#0b1120',
-                  border: `1px solid ${selectedEmail?.id === email.id ? '#38bdf8' : '#24324f'}`,
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  transition: 'all 0.15s ease'
-                }}
+                className={`email-item-card ${selectedEmail?.id === email.id ? 'selected' : ''}`}
               >
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
-                  <span style={{ fontSize: '12.5px', fontWeight: 600, color: '#fff' }}>{email.sender_name || email.sender}</span>
-                  <span className={`badge ${email.urgency === 'high' ? 'badge-amber' : ''}`} style={{ fontSize: '10px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+                  <span style={{ fontSize: '12px', fontWeight: 600, color: 'var(--text-pure)' }}>{email.sender_name || email.sender}</span>
+                  <span className={`badge ${email.urgency === 'high' ? 'badge-amber' : ''}`} style={{ fontSize: '9.5px' }}>
                     {email.category}
                   </span>
                 </div>
-                <div style={{ fontSize: '12px', color: '#94a3b8', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                <div style={{ fontSize: '12px', color: 'var(--text-secondary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                   {email.subject}
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '6px', fontSize: '10.5px' }}>
-                  <span style={{ color: '#64748b' }}>{new Date(email.received_at).toLocaleDateString()}</span>
-                  <span style={{ color: email.status === 'approved' ? '#10b981' : email.status === 'edited' ? '#38bdf8' : '#94a3b8' }}>
-                    {email.status ? email.status.toUpperCase() : 'PENDING'}
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '6px', fontSize: '10px', fontFamily: 'var(--font-mono)' }}>
+                  <span style={{ color: 'var(--text-muted)' }}>{new Date(email.received_at).toLocaleDateString()}</span>
+                  <span style={{ color: email.status === 'approved' ? 'var(--emerald-accent)' : email.status === 'edited' ? 'var(--cyan-primary)' : 'var(--text-muted)', fontWeight: 600 }}>
+                    {email.status ? email.status.toUpperCase() : 'PENDING REVIEW'}
                   </span>
                 </div>
               </div>
@@ -239,52 +228,54 @@ export default function Task2InboxAgent() {
 
         {/* Review & Triage Workspace */}
         {selectedEmail ? (
-          <div className="glass-card" style={{ display: 'flex', flexDirection: 'column', height: '620px' }}>
-            <div style={{ borderBottom: '1px solid #24324f', paddingBottom: '12px', marginBottom: '14px' }}>
-              <h2 style={{ fontSize: '16px', fontWeight: 700, color: '#fff' }}>{selectedEmail.subject}</h2>
-              <div style={{ display: 'flex', gap: '16px', fontSize: '11.5px', color: '#94a3b8', marginTop: '6px' }}>
-                <span>From: <strong style={{ color: '#cbd5e1' }}>{selectedEmail.sender_name}</strong> ({selectedEmail.sender})</span>
-                <span>Category: <strong style={{ color: '#cbd5e1', textTransform: 'capitalize' }}>{selectedEmail.category.replace('_', ' ')}</strong></span>
-                <span>Urgency: <strong style={{ color: selectedEmail.urgency === 'high' ? '#f59e0b' : '#38bdf8' }}>{selectedEmail.urgency.toUpperCase()}</strong></span>
+          <div className="ind-card" style={{ display: 'flex', flexDirection: 'column', height: '620px' }}>
+            <div style={{ borderBottom: '1px solid var(--border-subtle)', paddingBottom: '12px', marginBottom: '14px' }}>
+              <h2 style={{ fontSize: '15px', fontWeight: 700, color: 'var(--text-pure)', marginBottom: '6px' }}>{selectedEmail.subject}</h2>
+              <div style={{ display: 'flex', gap: '16px', fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
+                <span>FROM: <strong style={{ color: 'var(--text-primary)' }}>{selectedEmail.sender_name}</strong> &lt;{selectedEmail.sender}&gt;</span>
+                <span>CATEGORY: <strong style={{ color: 'var(--cyan-primary)', textTransform: 'uppercase' }}>{selectedEmail.category.replace('_', ' ')}</strong></span>
+                <span>URGENCY: <strong style={{ color: selectedEmail.urgency === 'high' ? 'var(--amber-accent)' : 'var(--cyan-primary)' }}>{selectedEmail.urgency.toUpperCase()}</strong></span>
               </div>
             </div>
 
             <div style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '14px' }}>
               {/* Customer Body */}
               <div>
-                <span style={{ fontSize: '11.5px', textTransform: 'uppercase', color: '#94a3b8', fontWeight: 600 }}>Customer Message:</span>
-                <div style={{ backgroundColor: '#0b1120', border: '1px solid #24324f', borderRadius: '8px', padding: '12px 14px', fontSize: '13px', lineHeight: '1.6', marginTop: '4px', whiteSpace: 'pre-wrap' }}>
+                <span style={{ fontSize: '10.5px', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 600, letterSpacing: '0.06em' }}>
+                  Customer Inbound Payload:
+                </span>
+                <div style={{ backgroundColor: 'var(--bg-input)', border: '1px solid var(--border-default)', borderRadius: 'var(--radius-sm)', padding: '12px 14px', fontSize: '12.5px', lineHeight: '1.6', marginTop: '6px', whiteSpace: 'pre-wrap', color: 'var(--text-primary)' }}>
                   {selectedEmail.body}
                 </div>
               </div>
 
               {/* AI Draft Box */}
               <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
-                  <span style={{ fontSize: '11.5px', textTransform: 'uppercase', color: '#94a3b8', fontWeight: 600 }}>
-                    AI Drafted Reply (Company Voice):
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                  <span style={{ fontSize: '10.5px', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 600, letterSpacing: '0.06em' }}>
+                    Agent Drafted Resolution (Company Tone &amp; Knowledge Grounded):
                   </span>
                   {selectedEmail.draft?.auto_sent && (
-                    <span className="badge badge-green">⚡ Auto-Sent to Client</span>
+                    <span className="badge badge-green font-mono">⚡ AUTO-DISPATCHED</span>
                   )}
                 </div>
 
                 <textarea 
                   value={draftText}
                   onChange={(e) => setDraftText(e.target.value)}
-                  style={{ flex: 1, width: '100%', minHeight: '160px', lineHeight: '1.6' }}
+                  style={{ flex: 1, width: '100%', minHeight: '160px', lineHeight: '1.6', fontFamily: 'var(--font-sans)', fontSize: '13px' }}
                   disabled={isDrafting}
                 />
               </div>
             </div>
 
             {/* Actions */}
-            <div style={{ display: 'flex', gap: '10px', marginTop: '14px', paddingTop: '12px', borderTop: '1px solid #24324f' }}>
+            <div style={{ display: 'flex', gap: '10px', marginTop: '14px', paddingTop: '12px', borderTop: '1px solid var(--border-subtle)' }}>
               <button className="btn btn-success" onClick={() => handleReview('send_as_is')}>
                 <Check size={14} /> Send As-Is (Approve Draft)
               </button>
               <button className="btn btn-primary" onClick={() => handleReview('edit_and_send')}>
-                <Edit3 size={14} /> Edit &amp; Send (Teach Agent)
+                <Edit3 size={14} /> Edit &amp; Send (Teach Diff Learner)
               </button>
               <button className="btn btn-danger" onClick={() => handleReview('reject_and_rewrite')}>
                 <XCircle size={14} /> Reject &amp; Rewrite
@@ -292,46 +283,46 @@ export default function Task2InboxAgent() {
             </div>
           </div>
         ) : (
-          <div className="glass-card" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <span style={{ color: '#64748b' }}>Select an email from the left pane to begin review.</span>
+          <div className="ind-card" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <span style={{ color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', fontSize: '12px' }}>SELECT AN INBOUND EMAIL TO INITIALIZE TRIAGE PANE</span>
           </div>
         )}
       </div>
 
       {/* Learned Rules Table */}
-      <div className="glass-card">
-        <div className="glass-card-header">
-          <h2>Self-Improving Memory Store (Learned Preferences)</h2>
-          <span className="badge badge-blue">Measurable &amp; Undoable</span>
+      <div className="ind-card">
+        <div className="ind-card-header">
+          <h2>Self-Improving Memory Store (Learned Policy Rules)</h2>
+          <span className="badge badge-cyan font-mono">DYNAMIC AUDIT LOG</span>
         </div>
-        <p style={{ fontSize: '12px', color: '#94a3b8', marginBottom: '14px' }}>
-          When human specialists edit drafts, the diff learner extracts policy rules to prevent repeating the mistake on subsequent emails.
+        <p style={{ fontSize: '11.5px', color: 'var(--text-muted)', marginBottom: '14px' }}>
+          When human specialists edit drafts, the diff learner automatically extracts actionable policy rules to prevent repeating the mistake on future emails.
         </p>
 
         {learnedRules.length === 0 ? (
-          <div style={{ textAlign: 'center', padding: '24px', color: '#64748b', fontSize: '13px' }}>
-            No custom rules learned yet. Edit any draft above to teach the agent!
+          <div style={{ textAlign: 'center', padding: '32px', color: 'var(--text-muted)', fontSize: '12.5px', fontFamily: 'var(--font-mono)' }}>
+            NO CUSTOM POLICIES LEARNED YET. EDIT ANY DRAFT ABOVE TO TEACH THE AGENT!
           </div>
         ) : (
           <div style={{ overflowX: 'auto' }}>
-            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '12.5px' }}>
+            <table className="ind-table">
               <thead>
-                <tr style={{ borderBottom: '1px solid #24324f', color: '#94a3b8', textAlign: 'left' }}>
-                  <th style={{ padding: '8px 12px' }}>Category</th>
-                  <th style={{ padding: '8px 12px' }}>Learned Policy / Rule</th>
-                  <th style={{ padding: '8px 12px' }}>Source Email</th>
-                  <th style={{ padding: '8px 12px' }}>Times Applied</th>
-                  <th style={{ padding: '8px 12px' }}>Action</th>
+                <tr>
+                  <th>Category</th>
+                  <th>Learned Policy / Rule</th>
+                  <th>Source Email</th>
+                  <th>Times Applied</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
                 {learnedRules.map((r) => (
-                  <tr key={r.id} style={{ borderBottom: '1px solid #1e293b' }}>
-                    <td style={{ padding: '10px 12px' }}><span className="badge">{r.category}</span></td>
-                    <td style={{ padding: '10px 12px', color: '#fff' }}>{r.rule_text}</td>
-                    <td style={{ padding: '10px 12px', color: '#94a3b8' }}><code>{r.source_email_id}</code></td>
-                    <td style={{ padding: '10px 12px' }}>{r.times_applied}</td>
-                    <td style={{ padding: '10px 12px' }}>
+                  <tr key={r.id}>
+                    <td><span className="badge font-mono">{r.category}</span></td>
+                    <td style={{ color: 'var(--text-pure)', fontWeight: 500 }}>{r.rule_text}</td>
+                    <td><code style={{ color: 'var(--cyan-primary)' }}>{r.source_email_id}</code></td>
+                    <td style={{ fontFamily: 'var(--font-mono)' }}>{r.times_applied}</td>
+                    <td>
                       <button className="btn btn-secondary btn-sm" onClick={() => handleUndoRule(r.id)}>
                         <RotateCcw size={12} /> Undo Rule
                       </button>

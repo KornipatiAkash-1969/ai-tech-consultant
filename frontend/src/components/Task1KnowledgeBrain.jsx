@@ -159,52 +159,45 @@ export default function Task1KnowledgeBrain() {
         </div>
         <div className="metric-card">
           <span>Pending Escalations</span>
-          <strong style={{ color: escalations.length > 0 ? '#f59e0b' : '#10b981' }}>
+          <strong style={{ color: escalations.length > 0 ? 'var(--amber-accent)' : 'var(--emerald-accent)' }}>
             {escalations.length}
           </strong>
         </div>
         <div className="metric-card">
           <span>Retrieval Engine</span>
-          <strong style={{ color: '#38bdf8' }}>Hybrid BM25</strong>
+          <strong style={{ color: 'var(--cyan-primary)' }}>Hybrid BM25</strong>
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1.25fr 1fr', gap: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1.25fr 1fr', gap: '22px' }}>
         {/* Chatbot Interface */}
-        <div className="glass-card" style={{ display: 'flex', flexDirection: 'column', height: '580px' }}>
-          <div className="glass-card-header">
-            <h2><Brain size={18} color="#38bdf8" /> Technical Consultant Chatbot</h2>
-            <span className="badge badge-blue">Grounded RAG</span>
+        <div className="ind-card" style={{ display: 'flex', flexDirection: 'column', height: '600px' }}>
+          <div className="ind-card-header">
+            <h2><Brain size={18} color="var(--cyan-primary)" /> Technical Consultant Terminal</h2>
+            <span className="badge badge-cyan">Grounded RAG</span>
           </div>
 
-          <div style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '14px', paddingRight: '6px' }}>
+          <div style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '14px', paddingRight: '8px' }}>
             {chatMessages.map((msg, i) => (
               <div 
                 key={i} 
-                style={{
-                  alignSelf: msg.role === 'user' ? 'flex-end' : 'flex-start',
-                  backgroundColor: msg.role === 'user' ? 'rgba(56, 189, 248, 0.15)' : '#0b1120',
-                  border: `1px solid ${msg.role === 'user' ? 'rgba(56, 189, 248, 0.4)' : '#24324f'}`,
-                  borderRadius: '10px',
-                  padding: '12px 16px',
-                  maxWidth: '85%',
-                  fontSize: '13px',
-                  lineHeight: '1.6'
-                }}
+                className={msg.role === 'user' ? 'chat-bubble-user' : 'chat-bubble-agent'}
               >
                 <p style={{ whiteSpace: 'pre-wrap' }}>{msg.text}</p>
 
                 {/* Screenshot gallery */}
                 {msg.images && msg.images.length > 0 && (
-                  <div style={{ marginTop: '10px', display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                  <div style={{ marginTop: '12px', display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                     {msg.images.map((img, idx) => (
-                      <div key={idx} style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
+                      <div key={idx} style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                         <img 
                           src={img.url} 
                           alt={img.caption} 
-                          style={{ maxHeight: '80px', borderRadius: '6px', border: '1px solid #334155' }} 
+                          style={{ maxHeight: '88px', borderRadius: 'var(--radius-xs)', border: '1px solid var(--border-default)', objectFit: 'cover' }} 
                         />
-                        <span style={{ fontSize: '10px', color: '#94a3b8', maxWidth: '140px' }}>{img.caption.slice(0, 40)}...</span>
+                        <span style={{ fontSize: '9.5px', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', maxWidth: '140px' }}>
+                          {img.caption.slice(0, 36)}...
+                        </span>
                       </div>
                     ))}
                   </div>
@@ -212,40 +205,42 @@ export default function Task1KnowledgeBrain() {
 
                 {/* Source Citations */}
                 {msg.sources && msg.sources.length > 0 && (
-                  <div style={{ marginTop: '12px', paddingTop: '8px', borderTop: '1px dashed #24324f', fontSize: '11px' }}>
-                    <span style={{ fontWeight: 600, color: '#94a3b8' }}>Verified Documentation Sources:</span>
+                  <div style={{ marginTop: '12px', paddingTop: '10px', borderTop: '1px solid var(--border-subtle)', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                    <span style={{ fontSize: '10.5px', fontFamily: 'var(--font-mono)', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                      Verified Solution Center Sources:
+                    </span>
                     {msg.sources.map((s, idx) => (
                       <a 
                         key={idx} 
                         href={s.url} 
                         target="_blank" 
                         rel="noreferrer"
-                        style={{ display: 'flex', alignItems: 'center', gap: '4px', color: '#38bdf8', textDecoration: 'none', marginTop: '4px' }}
+                        className="citation-pill"
                       >
-                        <ExternalLink size={11} /> {s.title} ({s.category} &gt; {s.folder}) [{Math.round(s.relevance_score * 100)}%]
+                        <ExternalLink size={10} /> {s.title} ({s.category}) [{Math.round(s.relevance_score * 100)}%]
                       </a>
                     ))}
                   </div>
                 )}
 
                 {msg.escalated && (
-                  <div style={{ marginTop: '8px' }}>
+                  <div style={{ marginTop: '10px' }}>
                     <span className="badge badge-amber">Escalated to Human Expert (Ticket #{msg.escalationId})</span>
                   </div>
                 )}
               </div>
             ))}
             {isLoading && (
-              <div style={{ alignSelf: 'flex-start', padding: '10px 14px', backgroundColor: '#0b1120', borderRadius: '8px', fontSize: '12px', color: '#94a3b8' }}>
-                <Sparkles size={14} style={{ display: 'inline', marginRight: '6px' }} /> Consulting Knowledge Brain...
+              <div style={{ alignSelf: 'flex-start', padding: '10px 14px', backgroundColor: 'var(--bg-surface)', border: '1px solid var(--border-default)', borderRadius: 'var(--radius-sm)', fontSize: '12px', color: 'var(--cyan-primary)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Sparkles size={14} className="radar-dot" /> Consulting Knowledge Brain vector store...
               </div>
             )}
           </div>
 
-          <form onSubmit={handleSendMessage} style={{ display: 'flex', gap: '10px', marginTop: '14px' }}>
+          <form onSubmit={handleSendMessage} style={{ display: 'flex', gap: '10px', marginTop: '14px', paddingTop: '12px', borderTop: '1px solid var(--border-subtle)' }}>
             <input 
               type="text" 
-              placeholder="e.g. How do I configure Stripe payment gateway?"
+              placeholder="Query Brilliant Directories documentation or settings (e.g. How do I configure Stripe?)..."
               value={inputQuery}
               onChange={(e) => setInputQuery(e.target.value)}
               style={{ flex: 1 }}
@@ -257,37 +252,41 @@ export default function Task1KnowledgeBrain() {
         </div>
 
         {/* Human Expert Escalation Queue */}
-        <div className="glass-card" style={{ display: 'flex', flexDirection: 'column', height: '580px' }}>
-          <div className="glass-card-header">
-            <h2><UserCheck size={18} color="#f59e0b" /> Human Expert Escalation Queue</h2>
-            <span className="badge badge-amber">Feedback Loop</span>
+        <div className="ind-card" style={{ display: 'flex', flexDirection: 'column', height: '600px' }}>
+          <div className="ind-card-header">
+            <h2><UserCheck size={18} color="var(--amber-accent)" /> Human Escalation Queue</h2>
+            <span className="badge badge-amber">Memory Flowback</span>
           </div>
-          <p style={{ fontSize: '12px', color: '#94a3b8', marginBottom: '14px' }}>
-            When questions cannot be answered with high confidence, they queue here. Resolving an escalation flows the answer directly into vector memory.
+          <p style={{ fontSize: '11.5px', color: 'var(--text-muted)', marginBottom: '14px' }}>
+            Low-confidence queries queue here automatically. Senior consultant resolutions write directly back into Knowledge Brain vector memory.
           </p>
 
-          <div style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <div style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {escalations.length === 0 ? (
-              <div style={{ textAlign: 'center', padding: '40px 20px', color: '#64748b', fontSize: '13px' }}>
-                <CheckCircle2 size={32} color="#10b981" style={{ margin: '0 auto 12px auto' }} />
-                All customer inquiries resolved. Zero pending escalations!
+              <div style={{ textAlign: 'center', padding: '60px 20px', color: 'var(--text-muted)', fontSize: '13px' }}>
+                <CheckCircle2 size={36} color="var(--emerald-accent)" style={{ margin: '0 auto 12px auto' }} />
+                All queries verified. Zero pending escalations!
               </div>
             ) : (
               escalations.map((esc) => (
-                <div key={esc.id} style={{ backgroundColor: '#0b1120', border: '1px solid #24324f', borderRadius: '8px', padding: '14px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
-                    <strong style={{ fontSize: '12.5px', color: '#fff' }}>Ticket #{esc.id}</strong>
-                    <span style={{ fontSize: '11px', color: '#94a3b8' }}>{new Date(esc.created_at).toLocaleTimeString()}</span>
+                <div key={esc.id} style={{ backgroundColor: 'var(--bg-input)', border: '1px solid var(--border-default)', borderRadius: 'var(--radius-sm)', padding: '14px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                    <span className="badge badge-amber font-mono">TICKET #{esc.id}</span>
+                    <span style={{ fontSize: '10.5px', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
+                      {new Date(esc.created_at).toLocaleTimeString()}
+                    </span>
                   </div>
-                  <p style={{ fontSize: '13px', color: '#cbd5e1', marginBottom: '10px' }}>"{esc.question}"</p>
+                  <p style={{ fontSize: '13px', color: 'var(--text-pure)', marginBottom: '12px', fontStyle: 'italic' }}>
+                    "{esc.question}"
+                  </p>
                   
                   <div style={{ display: 'flex', gap: '8px' }}>
                     <input 
                       type="text" 
-                      placeholder="Enter verified expert solution..."
+                      placeholder="Enter verified expert resolution..."
                       value={expertAnswers[esc.id] || ''}
                       onChange={(e) => setExpertAnswers(prev => ({ ...prev, [esc.id]: e.target.value }))}
-                      style={{ flex: 1, fontSize: '12px', padding: '8px 10px' }}
+                      style={{ flex: 1, fontSize: '12px', padding: '6px 10px' }}
                     />
                     <button 
                       className="btn btn-primary btn-sm"

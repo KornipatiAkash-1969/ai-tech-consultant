@@ -1,14 +1,14 @@
 {
   "how_to": {
     "category": "how_to",
-    "consecutive_approvals": 0,
+    "consecutive_approvals": 3,
     "threshold": 20,
     "is_autonomous": false,
-    "total_processed": 20,
+    "total_processed": 23,
     "total_auto_sent": 0,
     "regressions_count": 2,
     "last_regression_reason": "Customer complained about inaccurate documentation URL",
-    "last_updated": "2026-10-16T10:36:50.419Z"
+    "last_updated": "2026-10-16T11:52:57.391Z"
   },
   "new_project": {
     "category": "new_project",
