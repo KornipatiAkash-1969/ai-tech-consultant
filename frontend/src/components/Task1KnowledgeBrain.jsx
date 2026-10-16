@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
   Brain, Send, RefreshCw, AlertCircle, CheckCircle2, 
-  ExternalLink, Image as ImageIcon, Sparkles, UserCheck 
+  ExternalLink, Image as ImageIcon, Sparkles, UserCheck, Loader2 
 } from 'lucide-react';
 
 const T1_URL = 'http://localhost:8001';
@@ -19,6 +19,8 @@ export default function Task1KnowledgeBrain() {
   ]);
   const [inputQuery, setInputQuery] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [isSyncing, setIsSyncing] = useState(false);
+  const [resolvingId, setResolvingId] = useState(null);
   const [syncStatus, setSyncStatus] = useState('Idle');
   const [expertAnswers, setExpertAnswers] = useState({});
 
@@ -97,6 +99,7 @@ export default function Task1KnowledgeBrain() {
   };
 
   const triggerSitemapSync = async () => {
+    setIsSyncing(true);
     setSyncStatus('Syncing sitemap...');
     try {
       const res = await fetch(`${T1_URL}/api/v1/sync`, { method: 'POST' });
@@ -107,6 +110,8 @@ export default function Task1KnowledgeBrain() {
     } catch (err) {
       setSyncStatus('Sync Failed');
       alert('Failed to connect to Task 1 API.');
+    } finally {
+      setIsSyncing(false);
     }
   };
 
@@ -114,6 +119,7 @@ export default function Task1KnowledgeBrain() {
     const answer = expertAnswers[escId];
     if (!answer || !answer.trim()) return;
 
+    setResolvingId(escId);
     try {
       const res = await fetch(`${T1_URL}/api/v1/escalations/${escId}/resolve`, {
         method: 'POST',
@@ -132,6 +138,8 @@ export default function Task1KnowledgeBrain() {
       }
     } catch (err) {
       alert(`Error resolving escalation: ${err.message}`);
+    } finally {
+      setResolvingId(null);
     }
   };
 
@@ -142,8 +150,9 @@ export default function Task1KnowledgeBrain() {
           <h1>Task 1: The Knowledge Brain</h1>
           <p>Real-time RAG engine grounded in Brilliant Directories Solution Center with multimodal screenshot parsing and daily sitemap sync.</p>
         </div>
-        <button className="btn btn-secondary" onClick={triggerSitemapSync}>
-          <RefreshCw size={14} /> Sync Sitemap Daily ({syncStatus})
+        <button className="btn btn-secondary" onClick={triggerSitemapSync} disabled={isSyncing}>
+          <RefreshCw size={14} className={isSyncing ? "spinner" : ""} /> 
+          {isSyncing ? "Syncing Solution Center..." : `Sync Sitemap Daily (${syncStatus})`}
         </button>
       </div>
 
@@ -231,8 +240,18 @@ export default function Task1KnowledgeBrain() {
               </div>
             ))}
             {isLoading && (
-              <div style={{ alignSelf: 'flex-start', padding: '10px 14px', backgroundColor: 'var(--bg-surface)', border: '1px solid var(--border-default)', borderRadius: 'var(--radius-sm)', fontSize: '12px', color: 'var(--cyan-primary)', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Sparkles size={14} className="radar-dot" /> Consulting Knowledge Brain vector store...
+              <div className="chat-bubble-agent" style={{ display: 'flex', flexDirection: 'column', gap: '10px', maxWidth: '78%' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--cyan-primary)', fontSize: '12px' }}>
+                  <Loader2 size={15} className="spinner" />
+                  <span style={{ fontFamily: 'var(--font-mono)' }}>Consulting Knowledge Brain Vector Store...</span>
+                  <div className="pulse-loader" style={{ marginLeft: 'auto' }}>
+                    <span className="pulse-dot"></span>
+                    <span className="pulse-dot"></span>
+                    <span className="pulse-dot"></span>
+                  </div>
+                </div>
+                <div className="skeleton" style={{ height: '11px', width: '92%' }}></div>
+                <div className="skeleton" style={{ height: '11px', width: '70%' }}></div>
               </div>
             )}
           </div>
@@ -244,9 +263,20 @@ export default function Task1KnowledgeBrain() {
               value={inputQuery}
               onChange={(e) => setInputQuery(e.target.value)}
               style={{ flex: 1 }}
+              disabled={isLoading}
             />
-            <button type="submit" className="btn btn-primary" disabled={isLoading}>
-              <Send size={14} /> Send
+            <button type="submit" className="btn btn-primary" disabled={isLoading || !inputQuery.trim()}>
+              {isLoading ? (
+                <>
+                  <Loader2 size={14} className="spinner" />
+                  <span>Consulting...</span>
+                </>
+              ) : (
+                <>
+                  <Send size={14} />
+                  <span>Send</span>
+                </>
+              )}
             </button>
           </form>
         </div>
@@ -287,12 +317,21 @@ export default function Task1KnowledgeBrain() {
                       value={expertAnswers[esc.id] || ''}
                       onChange={(e) => setExpertAnswers(prev => ({ ...prev, [esc.id]: e.target.value }))}
                       style={{ flex: 1, fontSize: '12px', padding: '6px 10px' }}
+                      disabled={resolvingId === esc.id}
                     />
                     <button 
                       className="btn btn-primary btn-sm"
                       onClick={() => handleResolveEscalation(esc.id)}
+                      disabled={resolvingId === esc.id || !expertAnswers[esc.id]?.trim()}
                     >
-                      Resolve &amp; Index
+                      {resolvingId === esc.id ? (
+                        <>
+                          <Loader2 size={12} className="spinner" />
+                          <span>Indexing...</span>
+                        </>
+                      ) : (
+                        <span>Resolve &amp; Index</span>
+                      )}
                     </button>
                   </div>
                 </div>

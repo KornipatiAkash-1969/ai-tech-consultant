@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
   FileText, Play, CheckCircle, AlertTriangle, 
-  DollarSign, Clock, Layers, ShieldCheck, ChevronRight 
+  DollarSign, Clock, Layers, ShieldCheck, ChevronRight, Loader2, Sparkles 
 } from 'lucide-react';
 
 const T3_URL = 'http://localhost:8003';
@@ -13,6 +13,8 @@ export default function Task3MeetingSOW() {
   const [currentSOW, setCurrentSOW] = useState(null);
   const [isRunning, setIsRunning] = useState(false);
   const [isDiffing, setIsDiffing] = useState(false);
+  const [isApproving, setIsApproving] = useState(false);
+  const [agentStep, setAgentStep] = useState(1);
 
   useEffect(() => {
     fetchTranscripts();
@@ -36,6 +38,14 @@ export default function Task3MeetingSOW() {
 
   const handleRunPipeline = async () => {
     setIsRunning(true);
+    setAgentStep(1);
+
+    // Dynamic progression through the 5 agents
+    const timer1 = setTimeout(() => setAgentStep(2), 350);
+    const timer2 = setTimeout(() => setAgentStep(3), 700);
+    const timer3 = setTimeout(() => setAgentStep(4), 1050);
+    const timer4 = setTimeout(() => setAgentStep(5), 1400);
+
     try {
       const res = await fetch(`${T3_URL}/api/v1/sow/generate`, {
         method: 'POST',
@@ -50,7 +60,12 @@ export default function Task3MeetingSOW() {
     } catch (err) {
       alert(`Error running pipeline: ${err.message}`);
     } finally {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      clearTimeout(timer3);
+      clearTimeout(timer4);
       setIsRunning(false);
+      setAgentStep(1);
     }
   };
 
@@ -86,6 +101,7 @@ export default function Task3MeetingSOW() {
   const handleApproveSOW = async () => {
     if (!currentSOW) return;
 
+    setIsApproving(true);
     try {
       const res = await fetch(`${T3_URL}/api/v1/sow/${currentSOW.id}/approve`, {
         method: 'POST',
@@ -97,6 +113,8 @@ export default function Task3MeetingSOW() {
       alert("Scope of Work formally APPROVED! Ready for transmission to client.");
     } catch (err) {
       alert('Error approving SOW.');
+    } finally {
+      setIsApproving(false);
     }
   };
 
@@ -114,11 +132,13 @@ export default function Task3MeetingSOW() {
         <div className="ind-card-header">
           <h2><FileText size={18} color="var(--cyan-primary)" /> Select Discovery Call Transcript</h2>
           <div style={{ display: 'flex', gap: '10px' }}>
-            <button className="btn btn-primary" onClick={handleRunPipeline} disabled={isRunning}>
-              <Play size={14} /> {isRunning ? 'Running 5-Agent Pipeline...' : 'Run 5-Agent Pipeline'}
+            <button className="btn btn-primary" onClick={handleRunPipeline} disabled={isRunning || isDiffing}>
+              {isRunning ? <Loader2 size={14} className="spinner" /> : <Play size={14} />} 
+              {isRunning ? 'Orchestrating 5 Agents...' : 'Run 5-Agent Pipeline'}
             </button>
-            <button className="btn btn-secondary" onClick={handleRunDiff} disabled={isDiffing}>
-              <Layers size={14} /> {isDiffing ? 'Detecting Scope Creep...' : 'Run Meeting 2 Scope Diff & Creep'}
+            <button className="btn btn-secondary" onClick={handleRunDiff} disabled={isRunning || isDiffing}>
+              {isDiffing ? <Loader2 size={14} className="spinner" /> : <Layers size={14} />} 
+              {isDiffing ? 'Auditing Scope Creep...' : 'Run Meeting 2 Scope Diff & Creep'}
             </button>
           </div>
         </div>
@@ -140,7 +160,54 @@ export default function Task3MeetingSOW() {
           onChange={(e) => setTranscriptText(e.target.value)}
           rows={7}
           style={{ width: '100%', fontFamily: 'var(--font-mono)', fontSize: '11.5px', lineHeight: '1.6', color: 'var(--text-secondary)', backgroundColor: 'var(--bg-input)' }}
+          disabled={isRunning || isDiffing}
         />
+
+        {/* Multi-Agent Stepper Loader */}
+        {isRunning && (
+          <div className="agent-pipeline-loader" style={{ marginTop: '16px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px', borderBottom: '1px solid var(--border-subtle)', paddingBottom: '8px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--cyan-primary)', fontSize: '12.5px', fontWeight: 600 }}>
+                <Loader2 size={15} className="spinner" />
+                <span>Collaborative Multi-Agent Synthesis in Progress...</span>
+              </div>
+              <span className="badge badge-cyan font-mono">AGENT {agentStep} OF 5 ACTIVE</span>
+            </div>
+
+            <div className={`agent-step-item ${agentStep === 1 ? 'active' : agentStep > 1 ? 'completed' : ''}`}>
+              {agentStep > 1 ? <CheckCircle size={14} color="var(--emerald-accent)" /> : agentStep === 1 ? <Loader2 size={14} className="spinner" /> : <Clock size={14} />}
+              <span>Agent 1: Senior Consultant (Extracting technical requirements &amp; constraints)</span>
+            </div>
+
+            <div className={`agent-step-item ${agentStep === 2 ? 'active' : agentStep > 2 ? 'completed' : ''}`}>
+              {agentStep > 2 ? <CheckCircle size={14} color="var(--emerald-accent)" /> : agentStep === 2 ? <Loader2 size={14} className="spinner" /> : <Clock size={14} />}
+              <span>Agent 2: Feature Matcher (Querying Task 1 Knowledge Brain for built-in settings)</span>
+            </div>
+
+            <div className={`agent-step-item ${agentStep === 3 ? 'active' : agentStep > 3 ? 'completed' : ''}`}>
+              {agentStep > 3 ? <CheckCircle size={14} color="var(--emerald-accent)" /> : agentStep === 3 ? <Loader2 size={14} className="spinner" /> : <Clock size={14} />}
+              <span>Agent 3: Developer Estimator (Calculating hours &amp; complexity tiers)</span>
+            </div>
+
+            <div className={`agent-step-item ${agentStep === 4 ? 'active' : agentStep > 4 ? 'completed' : ''}`}>
+              {agentStep > 4 ? <CheckCircle size={14} color="var(--emerald-accent)" /> : agentStep === 4 ? <Loader2 size={14} className="spinner" /> : <Clock size={14} />}
+              <span>Agent 4: Scope Diff &amp; Creep Detector (Auditing baseline diffs &amp; exclusions)</span>
+            </div>
+
+            <div className={`agent-step-item ${agentStep === 5 ? 'active' : ''}`}>
+              {agentStep === 5 ? <Loader2 size={14} className="spinner" /> : <Clock size={14} />}
+              <span>Agent 5: Proposal Generator (Assembling itemized client agreement &amp; legal clauses)</span>
+            </div>
+          </div>
+        )}
+
+        {/* Scope Creep Diff Scanner Loader */}
+        {isDiffing && (
+          <div style={{ backgroundColor: 'var(--bg-input)', border: '1px solid var(--amber-border)', borderRadius: 'var(--radius-sm)', padding: '14px', marginTop: '16px', display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--amber-accent)', fontFamily: 'var(--font-mono)', fontSize: '12px' }}>
+            <Loader2 size={16} className="spinner" />
+            <span>Auditing Meeting 2 transcript for scope creep, Twilio SMS additions, and WebRTC exclusions...</span>
+          </div>
+        )}
       </div>
 
       {/* Results View */}
@@ -154,8 +221,9 @@ export default function Task3MeetingSOW() {
               </span>
             </div>
             {currentSOW.status !== 'human_approved' && (
-              <button className="btn btn-success" onClick={handleApproveSOW}>
-                <ShieldCheck size={16} /> Human Consultant Sign-Off &amp; Transmit
+              <button className="btn btn-success" onClick={handleApproveSOW} disabled={isApproving}>
+                {isApproving ? <Loader2 size={16} className="spinner" /> : <ShieldCheck size={16} />} 
+                {isApproving ? "Transmitting..." : "Human Consultant Sign-Off & Transmit"}
               </button>
             )}
           </div>

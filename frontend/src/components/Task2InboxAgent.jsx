@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
   Mail, Send, Edit3, XCircle, AlertTriangle, 
-  RotateCcw, Sparkles, Check, ArrowRight 
+  RotateCcw, Sparkles, Check, ArrowRight, Loader2 
 } from 'lucide-react';
 
 const T2_URL = 'http://localhost:8002';
@@ -14,6 +14,9 @@ export default function Task2InboxAgent() {
   const [draftText, setDraftText] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [isDrafting, setIsDrafting] = useState(false);
+  const [submittingAction, setSubmittingAction] = useState(null);
+  const [isRegressing, setIsRegressing] = useState(false);
+  const [undoingRuleId, setUndoingRuleId] = useState(null);
 
   useEffect(() => {
     fetchAutonomy();
@@ -76,6 +79,7 @@ export default function Task2InboxAgent() {
   const handleReview = async (action) => {
     if (!selectedEmail) return;
 
+    setSubmittingAction(action);
     try {
       const res = await fetch(`${T2_URL}/api/v1/emails/${selectedEmail.id}/review`, {
         method: 'POST',
@@ -94,6 +98,8 @@ export default function Task2InboxAgent() {
       fetchRules();
     } catch (err) {
       alert(`Error submitting review: ${err.message}`);
+    } finally {
+      setSubmittingAction(null);
     }
   };
 
@@ -101,6 +107,7 @@ export default function Task2InboxAgent() {
     const cat = prompt("Enter category to trigger regression on (e.g. how_to, refund, quote):", "how_to");
     if (!cat) return;
 
+    setIsRegressing(true);
     try {
       const res = await fetch(`${T2_URL}/api/v1/autonomy/regression`, {
         method: 'POST',
@@ -113,10 +120,13 @@ export default function Task2InboxAgent() {
       }
     } catch (err) {
       alert('Error triggering regression.');
+    } finally {
+      setIsRegressing(false);
     }
   };
 
   const handleUndoRule = async (ruleId) => {
+    setUndoingRuleId(ruleId);
     try {
       const res = await fetch(`${T2_URL}/api/v1/learning/rules/${ruleId}/undo`, { method: 'POST' });
       if (res.ok) {
@@ -125,6 +135,8 @@ export default function Task2InboxAgent() {
       }
     } catch (err) {
       alert('Error undoing rule.');
+    } finally {
+      setUndoingRuleId(null);
     }
   };
 
@@ -139,8 +151,9 @@ export default function Task2InboxAgent() {
           <h1>Task 2: The Inbox Agent</h1>
           <p>Autonomous self-improving email agent in strict TypeScript. Learns from human edits until 20 unedited approvals unlock autonomy.</p>
         </div>
-        <button className="btn btn-danger btn-sm" onClick={handleSimulateRegression}>
-          <AlertTriangle size={14} /> Simulate Safety Regression Rollback
+        <button className="btn btn-danger btn-sm" onClick={handleSimulateRegression} disabled={isRegressing}>
+          {isRegressing ? <Loader2 size={14} className="spinner" /> : <AlertTriangle size={14} />} 
+          {isRegressing ? "Rolling Back Autonomy..." : "Simulate Safety Regression Rollback"}
         </button>
       </div>
 
@@ -260,25 +273,51 @@ export default function Task2InboxAgent() {
                   )}
                 </div>
 
-                <textarea 
-                  value={draftText}
-                  onChange={(e) => setDraftText(e.target.value)}
-                  style={{ flex: 1, width: '100%', minHeight: '160px', lineHeight: '1.6', fontFamily: 'var(--font-sans)', fontSize: '13px' }}
-                  disabled={isDrafting}
-                />
+                {isDrafting ? (
+                  <div style={{ flex: 1, backgroundColor: 'var(--bg-input)', border: '1px solid var(--border-default)', borderRadius: 'var(--radius-sm)', padding: '16px', display: 'flex', flexDirection: 'column', gap: '10px', minHeight: '160px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--cyan-primary)', fontSize: '12px', fontFamily: 'var(--font-mono)' }}>
+                      <Loader2 size={15} className="spinner" />
+                      <span>Drafting grounded response via Task 1 Knowledge Brain...</span>
+                    </div>
+                    <div className="skeleton" style={{ height: '12px', width: '95%' }}></div>
+                    <div className="skeleton" style={{ height: '12px', width: '85%' }}></div>
+                    <div className="skeleton" style={{ height: '12px', width: '68%' }}></div>
+                  </div>
+                ) : (
+                  <textarea 
+                    value={draftText}
+                    onChange={(e) => setDraftText(e.target.value)}
+                    style={{ flex: 1, width: '100%', minHeight: '160px', lineHeight: '1.6', fontFamily: 'var(--font-sans)', fontSize: '13px' }}
+                  />
+                )}
               </div>
             </div>
 
             {/* Actions */}
             <div style={{ display: 'flex', gap: '10px', marginTop: '14px', paddingTop: '12px', borderTop: '1px solid var(--border-subtle)' }}>
-              <button className="btn btn-success" onClick={() => handleReview('send_as_is')}>
-                <Check size={14} /> Send As-Is (Approve Draft)
+              <button 
+                className="btn btn-success" 
+                onClick={() => handleReview('send_as_is')}
+                disabled={submittingAction !== null || isDrafting}
+              >
+                {submittingAction === 'send_as_is' ? <Loader2 size={14} className="spinner" /> : <Check size={14} />} 
+                {submittingAction === 'send_as_is' ? "Approving..." : "Send As-Is (Approve Draft)"}
               </button>
-              <button className="btn btn-primary" onClick={() => handleReview('edit_and_send')}>
-                <Edit3 size={14} /> Edit &amp; Send (Teach Diff Learner)
+              <button 
+                className="btn btn-primary" 
+                onClick={() => handleReview('edit_and_send')}
+                disabled={submittingAction !== null || isDrafting}
+              >
+                {submittingAction === 'edit_and_send' ? <Loader2 size={14} className="spinner" /> : <Edit3 size={14} />} 
+                {submittingAction === 'edit_and_send' ? "Recording Rule..." : "Edit & Send (Teach Diff Learner)"}
               </button>
-              <button className="btn btn-danger" onClick={() => handleReview('reject_and_rewrite')}>
-                <XCircle size={14} /> Reject &amp; Rewrite
+              <button 
+                className="btn btn-danger" 
+                onClick={() => handleReview('reject_and_rewrite')}
+                disabled={submittingAction !== null || isDrafting}
+              >
+                {submittingAction === 'reject_and_rewrite' ? <Loader2 size={14} className="spinner" /> : <XCircle size={14} />} 
+                {submittingAction === 'reject_and_rewrite' ? "Rejecting..." : "Reject & Rewrite"}
               </button>
             </div>
           </div>
@@ -323,8 +362,13 @@ export default function Task2InboxAgent() {
                     <td><code style={{ color: 'var(--cyan-primary)' }}>{r.source_email_id}</code></td>
                     <td style={{ fontFamily: 'var(--font-mono)' }}>{r.times_applied}</td>
                     <td>
-                      <button className="btn btn-secondary btn-sm" onClick={() => handleUndoRule(r.id)}>
-                        <RotateCcw size={12} /> Undo Rule
+                      <button 
+                        className="btn btn-secondary btn-sm" 
+                        onClick={() => handleUndoRule(r.id)}
+                        disabled={undoingRuleId === r.id}
+                      >
+                        {undoingRuleId === r.id ? <Loader2 size={12} className="spinner" /> : <RotateCcw size={12} />} 
+                        {undoingRuleId === r.id ? "Undoing..." : "Undo Rule"}
                       </button>
                     </td>
                   </tr>
