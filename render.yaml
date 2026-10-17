@@ -28,7 +28,7 @@ services:
         fromService:
           type: web
           name: ai-tech-consultant-task1
-          property: host
+          property: hostport
 
   # Task 3: Meeting to Scope of Work (FastAPI)
   - type: web
@@ -47,7 +47,7 @@ services:
         fromService:
           type: web
           name: ai-tech-consultant-task1
-          property: host
+          property: hostport
 
   # Executive Frontend (React 19 / Vite)
   - type: web
@@ -61,17 +61,8 @@ services:
         destination: /index.html
     envVars:
       - key: VITE_TASK1_URL
-        fromService:
-          type: web
-          name: ai-tech-consultant-task1
-          property: host
+        value: https://ai-tech-consultant-task1.onrender.com
       - key: VITE_TASK2_URL
-        fromService:
-          type: web
-          name: ai-tech-consultant-task2
-          property: host
+        value: https://ai-tech-consultant-task2.onrender.com
       - key: VITE_TASK3_URL
-        fromService:
-          type: web
-          name: ai-tech-consultant-task3
-          property: host
+        value: https://ai-tech-consultant-task3.onrender.com
