@@ -61,8 +61,8 @@ services:
         destination: /index.html
     envVars:
       - key: VITE_TASK1_URL
-        value: https://ai-tech-consultant-task1.onrender.com
+        value: https://ai-tech-consultant-task1-2g68.onrender.com
       - key: VITE_TASK2_URL
-        value: https://ai-tech-consultant-task2.onrender.com
+        value: https://ai-tech-consultant-task2-2g68.onrender.com
       - key: VITE_TASK3_URL
-        value: https://ai-tech-consultant-task3.onrender.com
+        value: https://ai-tech-consultant-task3-2g68.onrender.com
