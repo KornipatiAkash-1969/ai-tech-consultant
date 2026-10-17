@@ -3,8 +3,7 @@ import {
   Mail, Send, Edit3, XCircle, AlertTriangle, 
   RotateCcw, Sparkles, Check, ArrowRight, Loader2 
 } from 'lucide-react';
-
-const T2_URL = import.meta.env.VITE_TASK2_URL || 'http://localhost:8002';
+import { T2_URL } from '../config';
 
 export default function Task2InboxAgent() {
   const [emails, setEmails] = useState([]);

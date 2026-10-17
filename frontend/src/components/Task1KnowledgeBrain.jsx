@@ -3,8 +3,7 @@ import {
   Brain, Send, RefreshCw, AlertCircle, CheckCircle2, 
   ExternalLink, Image as ImageIcon, Sparkles, UserCheck, Loader2 
 } from 'lucide-react';
-
-const T1_URL = import.meta.env.VITE_TASK1_URL || 'http://localhost:8001';
+import { T1_URL } from '../config';
 
 export default function Task1KnowledgeBrain() {
   const [stats, setStats] = useState({ total_articles: 0, total_images_indexed: 0, pending_escalations: 0 });

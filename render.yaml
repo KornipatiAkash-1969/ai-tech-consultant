@@ -2,7 +2,7 @@ services:
   # Task 1: The Knowledge Brain (FastAPI)
   - type: web
     name: ai-tech-consultant-task1
-    env: python
+    runtime: python
     region: oregon
     plan: free
     buildCommand: pip install -r task1_knowledge_brain/requirements.txt
@@ -16,7 +16,7 @@ services:
   # Task 2: The Inbox Agent (Node.js / Strict TypeScript)
   - type: web
     name: ai-tech-consultant-task2
-    env: node
+    runtime: node
     region: oregon
     plan: free
     buildCommand: cd task2_inbox_agent && npm install && npm run build
@@ -28,12 +28,12 @@ services:
         fromService:
           type: web
           name: ai-tech-consultant-task1
-          envVarKey: RENDER_EXTERNAL_URL
+          property: host
 
   # Task 3: Meeting to Scope of Work (FastAPI)
   - type: web
     name: ai-tech-consultant-task3
-    env: python
+    runtime: python
     region: oregon
     plan: free
     buildCommand: pip install -r task3_meeting_sow/requirements.txt
@@ -47,12 +47,12 @@ services:
         fromService:
           type: web
           name: ai-tech-consultant-task1
-          envVarKey: RENDER_EXTERNAL_URL
+          property: host
 
   # Executive Frontend (React 19 / Vite)
   - type: web
     name: ai-tech-consultant-frontend
-    env: static
+    runtime: static
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: ./frontend/dist
     routes:
@@ -64,14 +64,14 @@ services:
         fromService:
           type: web
           name: ai-tech-consultant-task1
-          envVarKey: RENDER_EXTERNAL_URL
+          property: host
       - key: VITE_TASK2_URL
         fromService:
           type: web
           name: ai-tech-consultant-task2
-          envVarKey: RENDER_EXTERNAL_URL
+          property: host
       - key: VITE_TASK3_URL
         fromService:
           type: web
           name: ai-tech-consultant-task3
-          envVarKey: RENDER_EXTERNAL_URL
+          property: host
