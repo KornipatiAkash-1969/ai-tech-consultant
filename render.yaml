@@ -28,7 +28,7 @@ services:
         fromService:
           type: web
           name: ai-tech-consultant-task1
-          property: host
+          envVarKey: RENDER_EXTERNAL_URL
 
   # Task 3: Meeting to Scope of Work (FastAPI)
   - type: web
@@ -47,7 +47,7 @@ services:
         fromService:
           type: web
           name: ai-tech-consultant-task1
-          property: host
+          envVarKey: RENDER_EXTERNAL_URL
 
   # Executive Frontend (React 19 / Vite)
   - type: web
@@ -64,14 +64,14 @@ services:
         fromService:
           type: web
           name: ai-tech-consultant-task1
-          property: url
+          envVarKey: RENDER_EXTERNAL_URL
       - key: VITE_TASK2_URL
         fromService:
           type: web
           name: ai-tech-consultant-task2
-          property: url
+          envVarKey: RENDER_EXTERNAL_URL
       - key: VITE_TASK3_URL
         fromService:
           type: web
           name: ai-tech-consultant-task3
-          property: url
+          envVarKey: RENDER_EXTERNAL_URL

@@ -6,7 +6,10 @@ class Task1Client:
     """HTTP Client for Task 1 Knowledge Brain API"""
 
     def __init__(self, base_url: Optional[str] = None):
-        self.base_url = (base_url or os.getenv("TASK1_API_URL", "http://localhost:8001")).rstrip("/")
+        raw = (base_url or os.getenv("TASK1_API_URL", "http://localhost:8001")).rstrip("/")
+        if not raw.startswith("http://") and not raw.startswith("https://"):
+            raw = f"http://{raw}"
+        self.base_url = raw
         self.timeout = 1.5
 
     async def search(self, query: str, top_k: int = 3, category: Optional[str] = None) -> List[Dict[str, Any]]:

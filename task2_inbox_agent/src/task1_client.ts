@@ -4,7 +4,11 @@ export class Task1Client {
   private baseUrl: string;
 
   constructor(baseUrl: string = process.env.TASK1_API_URL || 'http://localhost:8001') {
-    this.baseUrl = baseUrl.replace(/\/$/, '');
+    let clean = baseUrl.replace(/\/$/, '');
+    if (!clean.startsWith('http://') && !clean.startsWith('https://')) {
+      clean = `http://${clean}`;
+    }
+    this.baseUrl = clean;
   }
 
   async search(query: string, topK: number = 3, category?: string): Promise<Task1SearchResult[]> {
