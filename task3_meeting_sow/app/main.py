@@ -48,6 +48,7 @@ async def root():
     }
 
 @app.get("/health", tags=["General"])
+@app.get("/api/v1/health", tags=["General"])
 async def health():
     t1_healthy = await orchestrator.task1_client.is_healthy()
     return {
