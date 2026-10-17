@@ -18,6 +18,21 @@ Developed for **@BusinessLabs | Anthropic Applied AI Developer/Engineer Capstone
 &nbsp;&nbsp;&nbsp;&nbsp;
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/KornipatiAkash-1969/ai-tech-consultant&root-directory=frontend)
 
+<br /><br />
+
+[![Live Vercel Frontend](https://img.shields.io/badge/Vercel_Frontend-Live_Production-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://frontend-ebon-ten-10.vercel.app)
+&nbsp;&nbsp;&nbsp;&nbsp;
+[![Render Backend Cluster](https://img.shields.io/badge/Render_Backends-3_Microservices_Live-46E3B7?style=for-the-badge&logo=render&logoColor=black)](https://ai-tech-consultant-task1-2g68.onrender.com/health)
+
+<br /><br />
+
+| Tier | Service | Live Production URL | Health Status |
+| :--- | :--- | :--- | :--- |
+| **Frontend** | React 19 Executive UI | [https://frontend-ebon-ten-10.vercel.app](https://frontend-ebon-ten-10.vercel.app) | **200 OK (Live on Vercel)** |
+| **Backend Task 1** | The Knowledge Brain (FastAPI) | [https://ai-tech-consultant-task1-2g68.onrender.com](https://ai-tech-consultant-task1-2g68.onrender.com) | **200 OK (Live on Render)** |
+| **Backend Task 2** | The Inbox Agent (Node / TypeScript) | [https://ai-tech-consultant-task2-2g68.onrender.com](https://ai-tech-consultant-task2-2g68.onrender.com) | **200 OK (Live on Render)** |
+| **Backend Task 3** | Meeting to SOW (FastAPI) | [https://ai-tech-consultant-task3-2g68.onrender.com](https://ai-tech-consultant-task3-2g68.onrender.com) | **200 OK (Live on Render)** |
+
 </div>
 
 ---
