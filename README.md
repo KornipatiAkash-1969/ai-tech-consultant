@@ -14,15 +14,20 @@ Developed for **@BusinessLabs | Anthropic Applied AI Developer/Engineer Capstone
 
 <br />
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/KornipatiAkash-1969/ai-tech-consultant)
+### 🌐 Live Production Application
+### 👉 **[https://frontend-ebon-ten-10.vercel.app](https://frontend-ebon-ten-10.vercel.app)**
+
+<br />
+
+[![Live Vercel Frontend](https://img.shields.io/badge/Vercel_Frontend-https%3A%2F%2Ffrontend--ebon--ten--10.vercel.app-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://frontend-ebon-ten-10.vercel.app)
 &nbsp;&nbsp;&nbsp;&nbsp;
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/KornipatiAkash-1969/ai-tech-consultant&root-directory=frontend)
+[![Render Backend Cluster](https://img.shields.io/badge/Render_Backends-3_Microservices_Live-46E3B7?style=for-the-badge&logo=render&logoColor=black)](https://ai-tech-consultant-task1-2g68.onrender.com/health)
 
 <br /><br />
 
-[![Live Vercel Frontend](https://img.shields.io/badge/Vercel_Frontend-Live_Production-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://frontend-ebon-ten-10.vercel.app)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/KornipatiAkash-1969/ai-tech-consultant)
 &nbsp;&nbsp;&nbsp;&nbsp;
-[![Render Backend Cluster](https://img.shields.io/badge/Render_Backends-3_Microservices_Live-46E3B7?style=for-the-badge&logo=render&logoColor=black)](https://ai-tech-consultant-task1-2g68.onrender.com/health)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/KornipatiAkash-1969/ai-tech-consultant&root-directory=frontend)
 
 <br /><br />
 
@@ -288,13 +293,16 @@ The repository includes an Infrastructure-as-Code blueprint ([`render.yaml`](ren
    - `ai-tech-consultant-frontend` (React 19 / Static Site linked to live backend URLs)
 
 ### Option 2: 1-Click Frontend Cloud Deployment (Vercel)
+
+> 🚀 **Live Production Deployment**: [https://frontend-ebon-ten-10.vercel.app](https://frontend-ebon-ten-10.vercel.app)
+
 Deploy the React Executive Dashboard to Vercel via [`vercel.json`](vercel.json):
 1. Click the **Deploy with Vercel** button above or run:
 ```bash
 # Deploy instantly from the terminal
 npx vercel --prod
 ```
-2. Set Environment Variables in Vercel:
+2. Automatically pre-configured to connect to the live Render backends (`https://ai-tech-consultant-task*-2g68.onrender.com`). Custom URLs can optionally be overridden via:
    - `VITE_TASK1_URL`: URL of your Task 1 backend
    - `VITE_TASK2_URL`: URL of your Task 2 backend
    - `VITE_TASK3_URL`: URL of your Task 3 backend
