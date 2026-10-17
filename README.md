@@ -12,6 +12,12 @@
 
 Developed for **@BusinessLabs | Anthropic Applied AI Developer/Engineer Capstone**.
 
+<br />
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/KornipatiAkash-1969/ai-tech-consultant)
+&nbsp;&nbsp;&nbsp;&nbsp;
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/KornipatiAkash-1969/ai-tech-consultant&root-directory=frontend)
+
 </div>
 
 ---
@@ -235,33 +241,50 @@ When launched via `run.ps1` or `run.sh`, the system exposes the following micros
 
 ## Deployment Guide
 
+<div align="center">
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/KornipatiAkash-1969/ai-tech-consultant)
+&nbsp;&nbsp;&nbsp;&nbsp;
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/KornipatiAkash-1969/ai-tech-consultant&root-directory=frontend)
+
+</div>
+
 ### Option 1: 1-Click Full-Stack Cloud Deployment (Render.com)
 The repository includes an Infrastructure-as-Code blueprint ([`render.yaml`](render.yaml)) to deploy all 4 microservices (FastAPI, Strict Node.js, and React Frontend) to the cloud with zero manual configuration:
-1. Log in to [Render.com](https://render.com).
-2. Go to **Blueprints** ➔ **New Blueprint Instance**.
-3. Connect `https://github.com/KornipatiAkash-1969/ai-tech-consultant`.
-4. Click **Apply**. Render will automatically provision:
-   - `ai-tech-consultant-task1` (Python 3.11 / FastAPI)
-   - `ai-tech-consultant-task2` (Node.js 20 / TypeScript)
-   - `ai-tech-consultant-task3` (Python 3.11 / FastAPI)
+1. Click the **Deploy to Render** button above or navigate to [Render Blueprints](https://dashboard.render.com/blueprints).
+2. Connect `https://github.com/KornipatiAkash-1969/ai-tech-consultant`.
+3. Click **Apply**. Render will automatically provision:
+   - `ai-tech-consultant-task1` (Python 3.11 / FastAPI on port 10000)
+   - `ai-tech-consultant-task2` (Node.js 20 / TypeScript on port 10000)
+   - `ai-tech-consultant-task3` (Python 3.11 / FastAPI on port 10000)
    - `ai-tech-consultant-frontend` (React 19 / Static Site linked to live backend URLs)
 
 ### Option 2: 1-Click Frontend Cloud Deployment (Vercel)
 Deploy the React Executive Dashboard to Vercel via [`vercel.json`](vercel.json):
+1. Click the **Deploy with Vercel** button above or run:
 ```bash
 # Deploy instantly from the terminal
 npx vercel --prod
 ```
-Or import `https://github.com/KornipatiAkash-1969/ai-tech-consultant` in the [Vercel Dashboard](https://vercel.com/new).
+2. Set Environment Variables in Vercel:
+   - `VITE_TASK1_URL`: URL of your Task 1 backend
+   - `VITE_TASK2_URL`: URL of your Task 2 backend
+   - `VITE_TASK3_URL`: URL of your Task 3 backend
 
-### Option 3: Production Multi-Container Docker
+### Option 3: Automated GitHub Pages Deployment
+The repository includes a GitHub Actions workflow ([`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)) that automatically builds and deploys the frontend:
+1. In your GitHub repository settings, go to **Settings** ➔ **Pages**.
+2. Under **Build and deployment** ➔ **Source**, select **GitHub Actions**.
+3. Every push to `main` automatically builds the React frontend and deploys it live.
+
+### Option 4: Production Multi-Container Docker
 Launch the entire system (all 3 backends + Nginx-powered React frontend) using Docker:
 ```bash
 docker-compose up --build
 ```
 Access the application at `http://localhost:5173` (Frontend), `http://localhost:8001` (Task 1), `http://localhost:8002` (Task 2), and `http://localhost:8003` (Task 3).
 
-### Option 4: Local & Virtual Server (VPS) Quickstart
+### Option 5: Local & Virtual Server (VPS) Quickstart
 **Windows (PowerShell):**
 ```powershell
 .\run.ps1
