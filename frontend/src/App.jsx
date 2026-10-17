@@ -122,7 +122,7 @@ export default function App() {
         <div className="telemetry-card">
           <div className="telemetry-header">
             <span>Daemon Telemetry</span>
-            <Activity size={12} color="#00d2ff" />
+            <Activity size={12} color="#ffffff" />
           </div>
 
           <div className="telemetry-row">
