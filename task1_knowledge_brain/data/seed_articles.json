@@ -1399,18 +1399,5 @@
     "last_modified": null,
     "content_hash": "bcedf01fd6c5396fb379a894fa6b21b513d1cdc9d1a732681997349d4f9e8a10",
     "created_at": "2026-10-16T10:27:43Z"
-  },
-  {
-    "id": "expert_esc_6b269d8a",
-    "url": "https://support.brilliantdirectories.com/support/expert-resolutions/esc_6b269d8a",
-    "title": "Expert Guide: What is the internal quantum entanglement protocol for orbital satellite sync?",
-    "category": "Expert Resolution",
-    "folder": "Expert Knowledge Base",
-    "content": "Question: What is the internal quantum entanglement protocol for orbital satellite sync?\n\nExpert Verified Solution:\nThe system uses standard HTTPS REST webhooks, not orbital quantum entanglement.\n\nResolved by: Lead Engineer Sarah",
-    "markdown": "# Expert Resolution: What is the internal quantum entanglement protocol for orbital satellite sync?\n\n**Verified Solution by Lead Engineer Sarah:**\n\nThe system uses standard HTTPS REST webhooks, not orbital quantum entanglement.",
-    "images": [],
-    "last_modified": null,
-    "content_hash": "4072147d3f3f4de89b37878d484b078f",
-    "created_at": "2026-10-16T10:31:34.309502"
   }
 ]

@@ -13,6 +13,7 @@ export class Task1Client {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query, top_k: topK, category, min_score: 0.20 }),
+        signal: AbortSignal.timeout(1500),
       });
 
       if (!response.ok) {

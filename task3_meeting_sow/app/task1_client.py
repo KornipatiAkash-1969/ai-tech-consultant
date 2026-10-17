@@ -7,7 +7,7 @@ class Task1Client:
 
     def __init__(self, base_url: Optional[str] = None):
         self.base_url = (base_url or os.getenv("TASK1_API_URL", "http://localhost:8001")).rstrip("/")
-        self.timeout = 10.0
+        self.timeout = 1.5
 
     async def search(self, query: str, top_k: int = 3, category: Optional[str] = None) -> List[Dict[str, Any]]:
         try:

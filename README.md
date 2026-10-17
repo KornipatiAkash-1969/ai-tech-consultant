@@ -237,6 +237,19 @@ When launched via `run.ps1` or `run.sh`, the system exposes the following micros
 - **Python 3.10+** (Tested on Python 3.13)
 - **Node.js 18+** & `npm`
 
+### Start All Services & Frontend Concurrently
+**Windows (PowerShell):**
+```powershell
+.\run.ps1
+```
+
+**Linux / macOS (Bash):**
+```bash
+chmod +x run.sh
+./run.sh
+```
+This boots all 3 microservices and the React frontend concurrently and opens `http://localhost:5173`.
+
 ---
 
 ## Deployment Guide

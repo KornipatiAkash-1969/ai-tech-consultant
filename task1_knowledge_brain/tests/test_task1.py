@@ -22,31 +22,36 @@ def test_rag_and_escalation():
     esc_manager = EscalationManager(store)
     rag = RAGEngine(store, esc_manager)
     
-    # 1. Test answerable question
-    req = ChatRequest(question="How do I import members into Brilliant Directories using a CSV?")
-    res = asyncio.run(rag.answer_question(req))
-    assert res.confidence_score >= 0.4
-    assert len(res.sources) > 0
-    assert not res.escalated
+    res_unknown = None
+    try:
+        # 1. Test answerable question
+        req = ChatRequest(question="How do I import members into Brilliant Directories using a CSV?")
+        res = asyncio.run(rag.answer_question(req))
+        assert res.confidence_score >= 0.4
+        assert len(res.sources) > 0
+        assert not res.escalated
 
-    # 2. Test unknown question triggers escalation
-    req_unknown = ChatRequest(question="What is the internal quantum entanglement protocol for orbital satellite sync?")
-    res_unknown = asyncio.run(rag.answer_question(req_unknown))
-    assert res_unknown.escalated is True
-    assert res_unknown.escalation_id is not None
-    
-    # 3. Test resolving escalation flows into memory
-    resolved = esc_manager.resolve_escalation(
-        escalation_id=res_unknown.escalation_id,
-        expert_answer="The system uses standard HTTPS REST webhooks, not orbital quantum entanglement.",
-        expert_name="Lead Engineer Sarah"
-    )
-    assert resolved.status == "resolved"
-    
-    # Verify it now appears in search!
-    res_search = store.search("quantum entanglement orbital satellite")
-    assert len(res_search) > 0
-    assert any("Lead Engineer Sarah" in r.snippet or "quantum" in r.title.lower() for r in res_search)
+        # 2. Test unknown question triggers escalation
+        req_unknown = ChatRequest(question="What is the internal quantum entanglement protocol for orbital satellite sync?")
+        res_unknown = asyncio.run(rag.answer_question(req_unknown))
+        assert res_unknown.escalated is True
+        assert res_unknown.escalation_id is not None
+        
+        # 3. Test resolving escalation flows into memory
+        resolved = esc_manager.resolve_escalation(
+            escalation_id=res_unknown.escalation_id,
+            expert_answer="The system uses standard HTTPS REST webhooks, not orbital quantum entanglement.",
+            expert_name="Lead Engineer Sarah"
+        )
+        assert resolved.status == "resolved"
+        
+        # Verify it now appears in search!
+        res_search = store.search("quantum entanglement orbital satellite")
+        assert len(res_search) > 0
+        assert any("Lead Engineer Sarah" in r.snippet or "quantum" in r.title.lower() for r in res_search)
+    finally:
+        if res_unknown and res_unknown.escalation_id:
+            store.delete_article(f"expert_{res_unknown.escalation_id}")
 
 def test_article_deletion_stops_appearing():
     store = VectorStore()
