@@ -5,7 +5,7 @@ services:
     runtime: python
     region: oregon
     plan: free
-    buildCommand: pip install -r task1_knowledge_brain/requirements.txt
+    buildCommand: pip install -r requirements.txt
     startCommand: uvicorn task1_knowledge_brain.app.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PORT
@@ -36,7 +36,7 @@ services:
     runtime: python
     region: oregon
     plan: free
-    buildCommand: pip install -r task3_meeting_sow/requirements.txt
+    buildCommand: pip install -r requirements.txt
     startCommand: uvicorn task3_meeting_sow.app.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PORT
