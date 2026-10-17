@@ -1,0 +1,52 @@
+name: Build & Verify CI/CD
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  verify-and-build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Set up Node.js 20
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+
+    - name: Install Python Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r task1_knowledge_brain/requirements.txt
+        pip install -r task3_meeting_sow/requirements.txt
+
+    - name: Run Task 1 Tests
+      run: |
+        python task1_knowledge_brain/tests/test_task1.py
+
+    - name: Build & Test Task 2 (Strict TypeScript)
+      run: |
+        cd task2_inbox_agent
+        npm install
+        npm run build
+        npm test
+
+    - name: Run Task 3 Tests
+      run: |
+        python task3_meeting_sow/tests/test_task3.py
+
+    - name: Build Executive React Frontend
+      run: |
+        cd frontend
+        npm install
+        npm run build

@@ -231,25 +231,47 @@ When launched via `run.ps1` or `run.sh`, the system exposes the following micros
 - **Python 3.10+** (Tested on Python 3.13)
 - **Node.js 18+** & `npm`
 
-### Launch Options
+---
 
-#### Windows (PowerShell)
+## Deployment Guide
+
+### Option 1: 1-Click Full-Stack Cloud Deployment (Render.com)
+The repository includes an Infrastructure-as-Code blueprint ([`render.yaml`](render.yaml)) to deploy all 4 microservices (FastAPI, Strict Node.js, and React Frontend) to the cloud with zero manual configuration:
+1. Log in to [Render.com](https://render.com).
+2. Go to **Blueprints** ➔ **New Blueprint Instance**.
+3. Connect `https://github.com/KornipatiAkash-1969/ai-tech-consultant`.
+4. Click **Apply**. Render will automatically provision:
+   - `ai-tech-consultant-task1` (Python 3.11 / FastAPI)
+   - `ai-tech-consultant-task2` (Node.js 20 / TypeScript)
+   - `ai-tech-consultant-task3` (Python 3.11 / FastAPI)
+   - `ai-tech-consultant-frontend` (React 19 / Static Site linked to live backend URLs)
+
+### Option 2: 1-Click Frontend Cloud Deployment (Vercel)
+Deploy the React Executive Dashboard to Vercel via [`vercel.json`](vercel.json):
+```bash
+# Deploy instantly from the terminal
+npx vercel --prod
+```
+Or import `https://github.com/KornipatiAkash-1969/ai-tech-consultant` in the [Vercel Dashboard](https://vercel.com/new).
+
+### Option 3: Production Multi-Container Docker
+Launch the entire system (all 3 backends + Nginx-powered React frontend) using Docker:
+```bash
+docker-compose up --build
+```
+Access the application at `http://localhost:5173` (Frontend), `http://localhost:8001` (Task 1), `http://localhost:8002` (Task 2), and `http://localhost:8003` (Task 3).
+
+### Option 4: Local & Virtual Server (VPS) Quickstart
+**Windows (PowerShell):**
 ```powershell
 .\run.ps1
 ```
 
-#### Linux / macOS (Bash)
+**Linux / macOS (Bash):**
 ```bash
 chmod +x run.sh
 ./run.sh
 ```
-
-#### Docker Compose
-```bash
-docker-compose up --build
-```
-
-The script will automatically install all dependencies, build the TypeScript project, compile the React UI, and launch all 4 services concurrently.
 
 ---
 

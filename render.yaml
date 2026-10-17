@@ -1,0 +1,77 @@
+services:
+  # Task 1: The Knowledge Brain (FastAPI)
+  - type: web
+    name: ai-tech-consultant-task1
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r task1_knowledge_brain/requirements.txt
+    startCommand: uvicorn task1_knowledge_brain.app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: PYTHON_VERSION
+        value: 3.11.8
+
+  # Task 2: The Inbox Agent (Node.js / Strict TypeScript)
+  - type: web
+    name: ai-tech-consultant-task2
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: cd task2_inbox_agent && npm install && npm run build
+    startCommand: cd task2_inbox_agent && node dist/index.js
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: TASK1_API_URL
+        fromService:
+          type: web
+          name: ai-tech-consultant-task1
+          property: host
+
+  # Task 3: Meeting to Scope of Work (FastAPI)
+  - type: web
+    name: ai-tech-consultant-task3
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r task3_meeting_sow/requirements.txt
+    startCommand: uvicorn task3_meeting_sow.app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: PYTHON_VERSION
+        value: 3.11.8
+      - key: TASK1_API_URL
+        fromService:
+          type: web
+          name: ai-tech-consultant-task1
+          property: host
+
+  # Executive Frontend (React 19 / Vite)
+  - type: web
+    name: ai-tech-consultant-frontend
+    env: static
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: ./frontend/dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_TASK1_URL
+        fromService:
+          type: web
+          name: ai-tech-consultant-task1
+          property: url
+      - key: VITE_TASK2_URL
+        fromService:
+          type: web
+          name: ai-tech-consultant-task2
+          property: url
+      - key: VITE_TASK3_URL
+        fromService:
+          type: web
+          name: ai-tech-consultant-task3
+          property: url

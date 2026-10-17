@@ -4,7 +4,7 @@ import {
   ExternalLink, Image as ImageIcon, Sparkles, UserCheck, Loader2 
 } from 'lucide-react';
 
-const T1_URL = 'http://localhost:8001';
+const T1_URL = import.meta.env.VITE_TASK1_URL || 'http://localhost:8001';
 
 export default function Task1KnowledgeBrain() {
   const [stats, setStats] = useState({ total_articles: 0, total_images_indexed: 0, pending_escalations: 0 });

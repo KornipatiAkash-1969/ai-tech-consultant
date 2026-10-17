@@ -9,9 +9,9 @@ import Task2InboxAgent from './components/Task2InboxAgent';
 import Task3MeetingSOW from './components/Task3MeetingSOW';
 import EvalsBenchmark from './components/EvalsBenchmark';
 
-const T1_URL = 'http://localhost:8001';
-const T2_URL = 'http://localhost:8002';
-const T3_URL = 'http://localhost:8003';
+const T1_URL = import.meta.env.VITE_TASK1_URL || 'http://localhost:8001';
+const T2_URL = import.meta.env.VITE_TASK2_URL || 'http://localhost:8002';
+const T3_URL = import.meta.env.VITE_TASK3_URL || 'http://localhost:8003';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('task1');

@@ -4,7 +4,7 @@ import {
   DollarSign, Clock, Layers, ShieldCheck, ChevronRight, Loader2, Sparkles 
 } from 'lucide-react';
 
-const T3_URL = 'http://localhost:8003';
+const T3_URL = import.meta.env.VITE_TASK3_URL || 'http://localhost:8003';
 
 export default function Task3MeetingSOW() {
   const [transcripts, setTranscripts] = useState({});
