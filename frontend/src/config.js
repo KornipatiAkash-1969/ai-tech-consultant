@@ -1,11 +1,21 @@
 export const resolveServiceUrl = (taskNumber, envUrl, fallback) => {
   if (typeof window !== 'undefined' && window.location && window.location.hostname) {
     const host = window.location.hostname;
-    // Automatically match any Render deployment host, e.g. ai-tech-consultant-frontend-2g68.onrender.com
+    // 1. Automatically match any Render deployment host, e.g. ai-tech-consultant-frontend-2g68.onrender.com
     const match = host.match(/ai-tech-consultant-frontend(-[a-z0-9]+)?\.onrender\.com/i);
     if (match) {
       const suffix = match[1] || '';
       return `https://ai-tech-consultant-task${taskNumber}${suffix}.onrender.com`;
+    }
+
+    // 2. If hosted on Vercel (*.vercel.app) or any cloud domain outside localhost
+    if (host !== 'localhost' && host !== '127.0.0.1' && !host.startsWith('192.168.') && !host.startsWith('10.')) {
+      if (envUrl && envUrl.trim()) {
+        const cleanEnv = envUrl.trim().replace(/\/$/, '');
+        return cleanEnv.startsWith('http://') || cleanEnv.startsWith('https://') ? cleanEnv : `https://${cleanEnv}`;
+      }
+      // Production live Render microservices defaults
+      return `https://ai-tech-consultant-task${taskNumber}-2g68.onrender.com`;
     }
   }
 

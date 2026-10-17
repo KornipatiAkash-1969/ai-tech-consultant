@@ -1,14 +1,14 @@
 {
   "how_to": {
     "category": "how_to",
-    "consecutive_approvals": 3,
+    "consecutive_approvals": 0,
     "threshold": 20,
     "is_autonomous": false,
     "total_processed": 23,
     "total_auto_sent": 0,
-    "regressions_count": 2,
-    "last_regression_reason": "Customer complained about inaccurate documentation URL",
-    "last_updated": "2026-10-16T11:52:57.391Z"
+    "regressions_count": 3,
+    "last_regression_reason": "Safety audit simulation triggered by human QA",
+    "last_updated": "2026-10-17T14:36:56.823Z"
   },
   "new_project": {
     "category": "new_project",
